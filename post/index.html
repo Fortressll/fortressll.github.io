@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="generator" content="Hugo 0.58.1" />
+	
+	<title>Posts - 记录学习，记录生活</title>
+
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+	<link href="https://fortressll.github.io//css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://fortressll.github.io//css/strange-case.css" rel="stylesheet">
+	
+
+	
+	
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	
+	<link href="https://fortressll.github.io/post/index.xml" rel="alternate" type="application/rss+xml" title="小乐的博客" />
+</head>
+<body class="scheme-darkbrown">
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-4 col-md-3 col-lg-3 sidebar">
+
+			
+	<div class="sidebar-content">
+
+		<a href="https://fortressll.github.io/"><h1>小乐的博客</h1></a>
+		<p>记录学习，记录生活</p>
+
+		
+		<div class="sidebar-freetext">
+			<p>Find the joy in your life.</p>
+		</div>
+		
+
+		<ul class="sidebar-menus">
+			
+				<li>&#187; <a href="https://github.com/Fortressll">GitHub</a> <span class='glyphicon glyphicon-fire'></span></li>
+			
+				<li>&#187; <a href="">WeChat: little-little-bullet</a> </li>
+			
+				<li>&#187; <a href="https://weibo.com/u/5674045879">微博</a> <span class='glyphicon glyphicon-ok'></span></li>
+			
+		</ul>
+
+		<div class="sidebar-recent hidden-xs">
+			<p>Recent Posts:</p>
+			<ul>
+				
+				<li><a href="https://fortressll.github.io/post/leetcode/">LeetCode</a></li>
+				
+				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
+				
+				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
+				
+				<li><a href="https://fortressll.github.io/post/my-first-blog/">关于小乐</a></li>
+				
+				<li><a href="https://fortressll.github.io/categories/">Categories</a></li>
+				
+			</ul>
+		</div>
+
+		
+
+		<p class="copyright">&copy; 2019. All rights reserved. </p>
+		<p class="attr">Powered by <a href="http://gohugo.io">Hugo</a> &amp; <a href="https://github.com/ExchangeRate-API/strange-case">Strange Case</a> (inspired by <a href="https://github.com/poole/hyde">Hyde</a>).</p>
+
+	</div>
+
+
+			</div>
+			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
+
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode/">LeetCode</a></h1>
+						<span>Sep 9, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<ul>
+<li><p>心血来潮想学习刷刷LeetCode，从简单难度开始吧,采用的的语言为Java</p></li>
+
+<li><p>附上LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="1-两数之和">1.两数之和</h3>
+
+<p>遍历一下，看看哪两个数字相加等于我们的目标值，返回他们的数组下标就可以了</p>
+
+<pre><code class="language-java">class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] output = new int[2];
+        for (int i = 0; i &lt; nums.length; i++) {
+            for (int j = i + 1; j &lt; nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    output[0] = i;
+                    output[1] = j;
+                }
+            }
+        }
+
+        return output;
+    }
+</code></pre>
+
+<h3 id="167-两数之和ii-输入有序数组">167.两数之和II-输入有序数组</h3>
+
+<p>因为要求是有序数组，所以设置了两个指针low和high，判断对应数相加是否是目标值，若是则返回下标+1</p>
+
+<pre><code class="language-java">class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int low = 0;
+        int high = numbers.length-1;
+        int[] output = new int[2];
+        while(low &lt; high) {
+            if (numbers[low] + numbers[high] == target) {
+                output[0] = low + 1;
+                output[1] = high + 1;
+            }
+            if (target - numbers[low] &lt; numbers[high]) {
+                    high--;
+            } else {
+                    low++;
+            }
+        }
+        return output;
+    }
+
+</code></pre>
+
+
+				</div>
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/my-first-blog/">关于小乐</a></h1>
+						<span>Sep 9, 2019</span>
+					</div>
+
+					<p>我的小小博客总算是开了，本应该在本科阶段就写写的，一直拖到了现在真是惭愧。平时可能会做点老师的小项目当当苦力，代码和学术方面能力都不怎么样，所以这个博客就作为一个学习的记录吧哈哈哈~欢迎互关微博或者加我的微信，希望可以向大家学到更多东西~</p>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/f0d335c3bb990aeb.png" alt="" /></p>
+
+
+				</div>
+				
+
+				<div class="text-center">
+					
+
+
+				</div>
+
+			</div>
+			<div class="col-sm-1 col-md-3 col-md-4">
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="https://fortressll.github.io//js/bootstrap.min.js"></script>
+
+</body>
+</html>

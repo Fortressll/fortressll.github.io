@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>小乐的博客</title>
+    <link>https://fortressll.github.io/</link>
+    <description>Recent content on 小乐的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 09 Sep 2019 17:30:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://fortressll.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LeetCode</title>
+      <link>https://fortressll.github.io/post/leetcode/</link>
+      <pubDate>Mon, 09 Sep 2019 17:30:13 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode/</guid>
+      <description>心血来潮想学习刷刷LeetCode，从简单难度开始吧,采用的的语言为Java
+ 附上LeetCode国内官网：https://leetcode-cn.com
+  简单难度 1.两数之和 遍历一下，看看哪两个数字相加等于我们的目标值，返回他们的数组下标就可以了
+class Solution { public int[] twoSum(int[] nums, int target) { int[] output = new int[2]; for (int i = 0; i &amp;lt; nums.length; i++) { for (int j = i + 1; j &amp;lt; nums.length; j++) { if (nums[i] + nums[j] == target) { output[0] = i; output[1] = j; } } } return output; }  167.两数之和II-输入有序数组 因为要求是有序数组，所以设置了两个指针low和high，判断对应数相加是否是目标值，若是则返回下标+1
+class Solution { public int[] twoSum(int[] numbers, int target) { int low = 0; int high = numbers.</description>
+    </item>
+    
+    <item>
+      <title>关于小乐</title>
+      <link>https://fortressll.github.io/post/my-first-blog/</link>
+      <pubDate>Mon, 09 Sep 2019 16:57:30 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/my-first-blog/</guid>
+      <description>我的小小博客总算是开了，本应该在本科阶段就写写的，一直拖到了现在真是惭愧。平时可能会做点老师的小项目当当苦力，代码和学术方面能力都不怎么样，所以这个博客就作为一个学习的记录吧哈哈哈~欢迎互关微博或者加我的微信，希望可以向大家学到更多东西~</description>
+    </item>
+    
+  </channel>
+</rss>
