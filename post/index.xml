@@ -6,10 +6,20 @@
     <description>Recent content in Posts on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 09 Sep 2019 17:30:13 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>一起看论文</title>
+      <link>https://fortressll.github.io/post/paper/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://fortressll.github.io/post/paper/</guid>
+      <description>之前看过一段时间论文，在这里做下简单的记录和大家分享一下，做的ppt有阵日子了，所以可能会忘记个别图片的出处，如果有幸被作者看到了，请联系我删除~
+So，let&amp;rsquo;s get started!</description>
+    </item>
     
     <item>
       <title>LeetCode</title>
