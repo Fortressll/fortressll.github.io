@@ -20,18 +20,30 @@
       <description>采用语言为Java
  LeetCode国内官网：https://leetcode-cn.com
  因为题号和题名都有，题目描述就不写了
-  简单难度 7.整数反转(Reverse Integer) 该题要求将目标值反转，比如123转为321，主要是个数学问题 我们可以设置一个值last，从个位数开始保存，依次加入十位数、百位数等
+  简单难度 7.整数反转(Reverse Integer) 该题要求将目标值反转，比如123转为321，主要是数学问题
+我们可以设置一个值last，从个位数开始保存，依次加入十位数、百位数等
 class Solution { public int reverse(int x) { long last = 0; while (x != 0) { last = last * 10 + x % 10; x /= 10; } if (last &amp;lt; Integer.MIN_VALUE || last &amp;gt; Integer.MAX_VALUE) { last = 0; } return (int)last; } }  执行用时：3ms 内存消耗：34.1MB</description>
     </item>
     
     <item>
-      <title>一起看论文</title>
+      <title>一起看论文-Stacked Hourglass Networks for Human Pose Estimation</title>
       <link>https://fortressll.github.io/post/paper/</link>
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://fortressll.github.io/post/paper/</guid>
       <description>之前看过一段时间论文，在这里做下简单的记录和大家分享一下，做的ppt有阵日子了，所以可能会忘记个别图片的出处，如果有幸被作者看到了，请联系我删除~
-So，let&amp;rsquo;s get started!</description>
+So，let&amp;rsquo;s get started!
+ 本篇主要和大家分享一下关于人体姿态估计方面的论文，主要以ppt加少量描述的形式呈现
+ 总觉得我的博客用的主题有点问题，图片很小，需要看细节只能麻烦Crtl+鼠标滚轮放大了
+  论文题目：Stacked Hourglass Networks for Human Pose Estimation  附上论文：https://arxiv.org/abs/1603.06937 附上代码(tensorflow版本，原版为Lua语言)：https://github.com/wbenbihi/hourglasstensorlfow  可以看到整体网络结构是由多个hourglass(沙漏)状的块组成，文章中多次提到bottom-up和top-down，对应高分辨率到低分辨率和从低分辨率到高分辨率，起初理解总是搞反，总觉得bottom to up直译应该是低到高，后来才发现自己的错误。该网络结构像沙漏，在图中能体现出它对称的特点。
+接下来介绍几个文章中的重要知识点，先是Residual Module(残差块)和Heat Map(热图)。上图中的小图代表一个残差块，下边大图是一个更加详细的绘制，图源实在找不到了抱歉，可以看到穿插了三个Batch Normalization(绿色部分)和三个Relu(红色部分)。
+上图即为Heat Map(热图)，可以看到有对关节点的预测，论文中对热图介绍不多，所以如想做更多了解还得Google了。
+上图是一个四阶Hourglass模块，可以先跳过此图看下图中的一阶Hourglass，之后再回来能够加深理解，图中每个方块都代表一个Residual残差块。
+接下来就是文中的主题Hourglass了，它的主要作用就是要捕捉每个尺度下地特征，图中就是一个Hourglass模块，蓝色Res代表Residual(残差块)，绿色为Max Pool(最大池化)层，红色部分为Up Sample(上采样)。大致可以从Hourglass模块总结出四个特点：1.可以看到在池化之前，向上分出了一个残差块，它的作用就是保留原尺度的信息，因为通过池化后会发生变化 2.上采样之后会将该处的信息和之前支线残差块出来的信息做一个相加 3.每两次降采样之间，会用一个残差块来提取特征，此图中并没有体现，因为它是一个一阶Hourglass，下图会展示一个四阶Hourglass结构，仔细对比可以发现这个特点 4.每两次相加操作之间会有一个残差块用于提取特征，同样参照下图
+上图为一个四阶的Hourglass模块，其实就是在满足上述四个特点的基础上做了四次叠加(将一阶Hourglass图中虚线框内部分替换为一个一阶Hourglass就可以得到二阶结构)
+Intermediate Supervision模块，暂译为中间监督，它的目的是对所有的Hourglass模块进行预测。图中沙漏状的就是Hourglass，每一个热图都会计算loss，蓝色部分就是热图的位置，其余部分均为卷积层。
+至此，各模块大致介绍已结束，附上整个网络结构图，可以看到从输入开始，依次经过卷积层，批量归一化加Relu、残差块、池化层，再经过两个残差块后就是重复的模块了，本文用来8个这样的重复结构，和热图那里是一个结构。
+训练细节如上图所示，本篇论文初看好像不是很难理解，但是还是建议对应相应的代码去自习扣一扣细节，可能会有不一样的认识。原文中的代码是Lua语言的，因为不是很了解Lua，所有我在Github上找到了Tensorflow版本的，也就是用Python语言的，慢慢啃还是由很多收获，希望大家可以去看一看，链接放在本篇开头部分，就这样~</description>
     </item>
     
     <item>
