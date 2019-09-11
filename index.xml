@@ -6,10 +6,23 @@
     <description>Recent content on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Tue, 10 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Sep 2019 11:25:57 +0800</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode7-整数反转(Reverse Integer)</title>
+      <link>https://fortressll.github.io/post/leetcode7/</link>
+      <pubDate>Wed, 11 Sep 2019 11:25:57 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode7/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  简单难度 7.整数反转(Reverse Integer) 该题要求将目标值反转，比如123转为321，主要是个数学问题 我们可以设置一个值last，从个位数开始保存，依次加入十位数、百位数等
+class Solution { public int reverse(int x) { long last = 0; while (x != 0) { last = last * 10 + x % 10; x /= 10; } if (last &amp;lt; Integer.MIN_VALUE || last &amp;gt; Integer.MAX_VALUE) { last = 0; } return (int)last; } }  执行用时：3ms 内存消耗：34.1MB</description>
+    </item>
     
     <item>
       <title>一起看论文</title>
@@ -22,12 +35,12 @@ So，let&amp;rsquo;s get started!</description>
     </item>
     
     <item>
-      <title>LeetCode</title>
-      <link>https://fortressll.github.io/post/leetcode/</link>
+      <title>LeetCode-两数之和(Two Sum)相关</title>
+      <link>https://fortressll.github.io/post/leetcode1/</link>
       <pubDate>Mon, 09 Sep 2019 17:30:13 +0800</pubDate>
       
-      <guid>https://fortressll.github.io/post/leetcode/</guid>
-      <description>心血来潮想学习刷刷LeetCode，从简单难度开始吧,采用的的语言为Java
+      <guid>https://fortressll.github.io/post/leetcode1/</guid>
+      <description>心血来潮想学习刷刷LeetCode，从简单难度开始吧,采用的语言为Java
  附上LeetCode国内官网：https://leetcode-cn.com
  因为题号和题名都有，题目描述就不写了
   简单难度 1.两数之和(Two Sum) 遍历一下，看看哪两个数字相加等于我们的目标值，返回他们的数组下标就可以了
