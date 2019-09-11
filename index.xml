@@ -6,10 +6,24 @@
     <description>Recent content on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 11 Sep 2019 11:25:57 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 Sep 2019 19:45:31 +0800</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode9-回文数(Palindrome Number)</title>
+      <link>https://fortressll.github.io/post/leetcode9/</link>
+      <pubDate>Wed, 11 Sep 2019 19:45:31 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode9/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  简单难度 9.回文数(Palindrome Number) 本来看完题目不想用转字符串数组的方法做来着，但是想了会还是没想出来数学方法，先做了再说
+还是一个low,一个high，判断数组对应位置是否相等
+class Solution { public boolean isPalindrome(int x) { char[] str = (&amp;quot;&amp;quot;+x).toCharArray(); int high = str.length-1; for (int low = 0; low &amp;lt;= high; low++) { if(str[low] != str[high-low]) return false; } return true; } }  执行用时：19ms 内存消耗：39.1MB</description>
+    </item>
     
     <item>
       <title>Leetcode7-整数反转(Reverse Integer)</title>

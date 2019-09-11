@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="generator" content="Hugo 0.58.1" />
 	
-	<title>关于小乐 - 记录学习，记录生活</title>
+	<title>Leetcode9-回文数(Palindrome Number) - 记录学习，记录生活</title>
 
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -85,13 +85,44 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1>关于小乐</h1>
-						<span class="post-date"><a href="https://fortressll.github.io/post/my-first-blog/"># Sep 9, 2019</a></span>
+						<h1>Leetcode9-回文数(Palindrome Number)</h1>
+						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode9/"># Sep 11, 2019</a></span>
 					</div>
 
-					<p>我的小小博客总算是开了，本应该在本科阶段就写写的，一直拖到了现在真是惭愧。平时可能会做点老师的小项目当当苦力，代码和学术方面能力都不怎么样，所以这个博客就作为一个学习的记录吧哈哈哈~欢迎互关微博或者加我的微信，希望可以向大家学到更多东西~</p>
+					
 
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/f0d335c3bb990aeb.png" alt="" /></p>
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="9-回文数-palindrome-number">9.回文数(Palindrome Number)</h3>
+
+<p>本来看完题目不想用转字符串数组的方法做来着，但是想了会还是没想出来数学方法，先做了再说</p>
+
+<p>还是一个low,一个high，判断数组对应位置是否相等</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean isPalindrome(int x) {
+        char[] str = (&quot;&quot;+x).toCharArray();
+        int high = str.length-1;
+        for (int low = 0; low &lt;= high; low++) {
+            if(str[low] != str[high-low])
+                return false;
+        }
+        return true;
+    }
+}
+</code></pre>
+
+<p>执行用时：19ms 内存消耗：39.1MB</p>
 
 
 				</div>
