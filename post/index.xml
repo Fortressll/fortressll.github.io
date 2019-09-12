@@ -20,7 +20,7 @@
       <description>采用语言为Java
  LeetCode国内官网：https://leetcode-cn.com
  因为题号和题名都有，题目描述就不写了
-  简单难度 14.最长公共前缀(Longest Common Prefix) 这个写点有点乱了哈哈哈，先求出数组中最短元素的长度，后面只需遍历最短长度就可以了
+  简单难度 14.最长公共前缀(Longest Common Prefix) 这个写的有点乱了哈哈哈，先求出数组中最短元素的长度，后面只需遍历最短长度就可以了
 class Solution { public String longestCommonPrefix(String[] strs) { String same = &amp;quot;&amp;quot;; if (strs.length == 1) { return strs[0]; } else if (strs == null || strs.length == 0) { return &amp;quot;&amp;quot;; } else { int min = strs[0].length(); for (int i = 1; i &amp;lt; strs.length; i++) { if (strs[i].length() &amp;lt; min) min = strs[i].length(); } for (int i = 0; i &amp;lt; min; i++) { for (int j = 1; j &amp;lt; strs.</description>
     </item>
     
