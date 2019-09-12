@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="generator" content="Hugo 0.58.1" />
 	
-	<title>Leetcode-7.整数反转(Reverse Integer) - 记录学习，记录生活</title>
+	<title>Leetcode-14.最长公共前缀(Longest Common Prefix) - 记录学习，记录生活</title>
 
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -85,17 +85,17 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1>Leetcode-7.整数反转(Reverse Integer)</h1>
-						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode7/"># Sep 11, 2019</a></span>
+						<h1>Leetcode-14.最长公共前缀(Longest Common Prefix)</h1>
+						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode14/"># Sep 12, 2019</a></span>
 					</div>
 
 					
 
 <p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
 
-<ul>
-<li><p>采用语言为Java</p></li>
+<p>采用语言为Java</p>
 
+<ul>
 <li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
 
 <li><p>因为题号和题名都有，题目描述就不写了</p></li>
@@ -103,28 +103,42 @@
 
 <h2 id="简单难度">简单难度</h2>
 
-<h3 id="7-整数反转-reverse-integer">7.整数反转(Reverse Integer)</h3>
+<h3 id="14-最长公共前缀-longest-common-prefix">14.最长公共前缀(Longest Common Prefix)</h3>
 
-<p>该题要求将目标值反转，比如123转为321，主要是数学问题</p>
-
-<p>我们可以设置一个值last，从个位数开始保存，依次加入十位数、百位数等</p>
+<p>这个写点有点乱了哈哈哈，先求出数组中最短元素的长度，后面只需遍历最短长度就可以了</p>
 
 <pre><code class="language-java">class Solution {
-    public int reverse(int x) {
-        long last = 0;
-        while (x != 0) {
-            last = last * 10 + x % 10;
-            x /= 10;
-        } 
-        if (last &lt; Integer.MIN_VALUE || last &gt; Integer.MAX_VALUE) {
-                last = 0;
+    public String longestCommonPrefix(String[] strs) {
+        String same = &quot;&quot;;
+        if (strs.length == 1) {
+            return strs[0];
+        } else if (strs == null || strs.length == 0) {
+            return &quot;&quot;;
         }
-        return (int)last;
+        else {
+            int min = strs[0].length();
+            for (int i = 1; i &lt; strs.length; i++) {
+                if (strs[i].length() &lt; min)
+                    min = strs[i].length();
+            }
+            for (int i = 0; i &lt; min; i++) {
+                for (int j = 1; j &lt; strs.length; j++) {
+                    if (strs[0].charAt(i) == strs[j].charAt(i)) {
+                        if (j == strs.length-1)
+                            same += strs[0].charAt(i);
+                    } else {
+                        return same;
+                    }
+                }
+            }
+            System.out.println(same);
+            return same;
+        }
     }
 }
 </code></pre>
 
-<p>执行用时：3ms 内存消耗：34.1MB</p>
+<p>执行用时：5ms 内存消耗：36.1MB</p>
 
 
 				</div>
