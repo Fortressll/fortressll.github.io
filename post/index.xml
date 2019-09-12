@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Leetcode9-回文数(Palindrome Number)</title>
+      <title>Leetcode-9.回文数(Palindrome Number)</title>
       <link>https://fortressll.github.io/post/leetcode9/</link>
       <pubDate>Wed, 11 Sep 2019 19:45:31 +0800</pubDate>
       
@@ -26,7 +26,7 @@ class Solution { public boolean isPalindrome(int x) { char[] str = (&amp;quot;&a
     </item>
     
     <item>
-      <title>Leetcode7-整数反转(Reverse Integer)</title>
+      <title>Leetcode-7.整数反转(Reverse Integer)</title>
       <link>https://fortressll.github.io/post/leetcode7/</link>
       <pubDate>Wed, 11 Sep 2019 11:25:57 +0800</pubDate>
       
