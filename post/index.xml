@@ -6,10 +6,23 @@
     <description>Recent content in Posts on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 14 Sep 2019 13:53:50 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 14 Sep 2019 16:58:49 +0800</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode-27.移除元素(Remove ELement)</title>
+      <link>https://fortressll.github.io/post/leetcode27/</link>
+      <pubDate>Sat, 14 Sep 2019 16:58:49 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode27/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  简单难度 27.移除元素(Remove ELement) 刚开始想了好久怎么把val值删除掉，其实只需要i,j两个指针，当遍历到不等于val值的元素时，将该值赋给指针i(从零开始)对应的数组即可，可以想象是新的数组覆盖了原来的数组
+class Solution { public int removeElement(int[] nums, int val) { int i = 0; for (int j = 0; j &amp;lt; nums.length; j++) { if (nums[j] != val) { nums[i] = nums[j]; i++; } } return i; } }  执行用时：1ms 内存消耗：35.5MB</description>
+    </item>
     
     <item>
       <title>Leetcode-155.最小栈(Min Stack)</title>

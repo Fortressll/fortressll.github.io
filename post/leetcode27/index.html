@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="generator" content="Hugo 0.58.1" />
 	
-	<title>Leetcode-9.回文数(Palindrome Number) - 记录学习，记录生活</title>
+	<title>Leetcode-27.移除元素(Remove ELement) - 记录学习，记录生活</title>
 
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -85,8 +85,8 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1>Leetcode-9.回文数(Palindrome Number)</h1>
-						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode9/"># Sep 11, 2019</a></span>
+						<h1>Leetcode-27.移除元素(Remove ELement)</h1>
+						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode27/"># Sep 14, 2019</a></span>
 					</div>
 
 					
@@ -103,26 +103,25 @@
 
 <h2 id="简单难度">简单难度</h2>
 
-<h3 id="9-回文数-palindrome-number">9.回文数(Palindrome Number)</h3>
+<h3 id="27-移除元素-remove-element">27.移除元素(Remove ELement)</h3>
 
-<p>本来看完题目不想用转字符串数组的方法做来着，但是想了会还是没想出来数学方法，先做了再说</p>
-
-<p>还是一个low,一个high，判断数组对应位置是否相等</p>
+<p>刚开始想了好久怎么把val值删除掉，其实只需要i,j两个指针，当遍历到不等于val值的元素时，将该值赋给指针i(从零开始)对应的数组即可，可以想象是新的数组覆盖了原来的数组</p>
 
 <pre><code class="language-java">class Solution {
-    public boolean isPalindrome(int x) {
-        char[] str = (&quot;&quot;+x).toCharArray();
-        int high = str.length-1;
-        for (int low = 0; low &lt;= high; low++) {
-            if(str[low] != str[high-low])
-                return false;
+    public int removeElement(int[] nums, int val) {
+        int i = 0;
+        for (int j = 0; j &lt; nums.length; j++) {
+            if (nums[j] != val) {
+                nums[i] = nums[j];
+                i++;
+            }
         }
-        return true;
+        return i;
     }
 }
 </code></pre>
 
-<p>执行用时：19ms 内存消耗：39.1MB</p>
+<p>执行用时：1ms 内存消耗：35.5MB</p>
 
 
 				</div>
