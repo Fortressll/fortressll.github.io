@@ -6,10 +6,23 @@
     <description>Recent content in Posts on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 13 Sep 2019 14:54:31 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 14 Sep 2019 13:53:50 +0800</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode-155.最小栈(Min Stack)</title>
+      <link>https://fortressll.github.io/post/leetcode155/</link>
+      <pubDate>Sat, 14 Sep 2019 13:53:50 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode155/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  简单难度 155.最小栈(Min Stack) 解法一 题目要求设计一个栈，于是开始造轮子，定义数组作为栈，其他部分按照题目要求一点一点写就好，注意要判断是否溢出，这也是很麻烦的一点，因为数组长度定义不好的话，提交时只要测试用例够长就会溢出
+import java.util.EmptyStackException; class MinStack { private int[] array; private int top; private final static int size = 10000; /** initialize your data structure here. */ public MinStack() { array = new int[size]; top = -1; } public void push(int x) { if (top == size - 1) { throw new StackOverflowError(); } else { array[++top] = x; } } public void pop() { if (top == -1) { throw new EmptyStackException(); } array[top] = array[top+1]; top--; } public int top() { if (top == -1) { throw new EmptyStackException(); } return array[top]; } public int getMin() { if (top == -1) { throw new EmptyStackException(); } int min = array[0]; for (int i = 1; i &amp;lt;= top; i++) { if (array[i] &amp;lt; min) min = array[i]; } return min; } }  执行用时：132ms 内存消耗：47.</description>
+    </item>
     
     <item>
       <title>Leetcode-20.有效的括号(Valid Parentheses)</title>
@@ -88,7 +101,7 @@ Intermediate Supervision模块，暂译为中间监督，它的目的是对所�
     </item>
     
     <item>
-      <title>LeetCode-两数之和(Two Sum)相关</title>
+      <title>LeetCode-1&amp;&amp;167.两数之和(Two Sum)相关</title>
       <link>https://fortressll.github.io/post/leetcode1/</link>
       <pubDate>Mon, 09 Sep 2019 17:30:13 +0800</pubDate>
       

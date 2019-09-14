@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="generator" content="Hugo 0.58.1" />
 	
-	<title>Leetcode-9.回文数(Palindrome Number) - 记录学习，记录生活</title>
+	<title>Leetcode-155.最小栈(Min Stack) - 记录学习，记录生活</title>
 
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -85,8 +85,8 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1>Leetcode-9.回文数(Palindrome Number)</h1>
-						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode9/"># Sep 11, 2019</a></span>
+						<h1>Leetcode-155.最小栈(Min Stack)</h1>
+						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode155/"># Sep 14, 2019</a></span>
 					</div>
 
 					
@@ -103,26 +103,113 @@
 
 <h2 id="简单难度">简单难度</h2>
 
-<h3 id="9-回文数-palindrome-number">9.回文数(Palindrome Number)</h3>
+<h3 id="155-最小栈-min-stack">155.最小栈(Min Stack)</h3>
 
-<p>本来看完题目不想用转字符串数组的方法做来着，但是想了会还是没想出来数学方法，先做了再说</p>
+<h3 id="解法一">解法一</h3>
 
-<p>还是一个low,一个high，判断数组对应位置是否相等</p>
+<p>题目要求设计一个栈，于是开始造轮子，定义数组作为栈，其他部分按照题目要求一点一点写就好，注意要判断是否溢出，这也是很麻烦的一点，因为数组长度定义不好的话，提交时只要测试用例够长就会溢出</p>
 
-<pre><code class="language-java">class Solution {
-    public boolean isPalindrome(int x) {
-        char[] str = (&quot;&quot;+x).toCharArray();
-        int high = str.length-1;
-        for (int low = 0; low &lt;= high; low++) {
-            if(str[low] != str[high-low])
-                return false;
+<pre><code class="language-java">import java.util.EmptyStackException;
+
+class MinStack {
+    private int[] array;
+    private int top;
+    private final static int size = 10000;
+    /** initialize your data structure here. */
+    public MinStack() {
+        array = new int[size];
+        top = -1;
+    }
+
+    public void push(int x) {
+        if (top == size - 1) {
+            throw new StackOverflowError();
+        } else {
+            array[++top] = x;
         }
-        return true;
+    }
+
+    public void pop() {
+        if (top == -1) {
+            throw new EmptyStackException();
+        }
+        array[top] = array[top+1];
+        top--;
+    }
+
+    public int top() {
+        if (top == -1) {
+            throw new EmptyStackException();
+        }
+        return array[top];
+    }
+
+    public int getMin() {
+        if (top == -1) {
+            throw new EmptyStackException();
+        }
+        int min = array[0];
+        for (int i = 1; i &lt;= top; i++) {
+            if (array[i] &lt; min)
+                min = array[i];
+        }
+        return min;
     }
 }
 </code></pre>
 
-<p>执行用时：19ms 内存消耗：39.1MB</p>
+<p>执行用时：132ms 内存消耗：47.3MB</p>
+
+<h3 id="解法二">解法二</h3>
+
+<p>我们人为定义一个辅助的栈box，用来存栈中最小的元素,存放数据的栈data也是利用java.util.Stack包里现成的</p>
+
+<pre><code class="language-java">import java.util.Stack;
+import java.util.EmptyStackException;
+
+class MinStack {
+    private Stack&lt;Integer&gt; data;
+    private Stack&lt;Integer&gt; box;
+
+    /** initialize your data structure here. */
+    public MinStack() {
+        data = new Stack&lt;&gt;();
+        box = new Stack&lt;&gt;();
+    }
+
+    public void push(int x) {
+        data.add(x);
+        if (box.isEmpty() || box.peek() &gt;= x) {
+            box.add(x);
+        } else {
+            box.add(box.peek());
+        }
+    }
+
+    public void pop() {
+        if (!data.isEmpty()) {
+            data.pop();
+            box.pop();
+        }
+    }
+
+    public int top() {
+        if (!data.isEmpty()) {
+            return data.peek();
+        }
+        throw new StackOverflowError();
+    }
+
+    public int getMin() {
+        if (!data.isEmpty()) {
+            return box.peek();
+        }
+        throw new StackOverflowError();
+    }
+}
+</code></pre>
+
+<p>执行用时：101ms 内存消耗：44.6MB</p>
 
 
 				</div>
