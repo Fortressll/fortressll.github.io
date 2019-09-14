@@ -58,15 +58,15 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode27/">Leetcode-27.移除元素(Remove ELement)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode155/">Leetcode-155.最小栈(Min Stack)</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode155/">Leetcode-155.最小栈(Min Stack)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode27/">Leetcode-27.移除元素(Remove ELement)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode20/">Leetcode-20.有效的括号(Valid Parentheses)</a></li>
+				<li><a href="https://fortressll.github.io/post/american-accent-training/">American Accent Training</a></li>
 				
 			</ul>
 		</div>
@@ -82,6 +82,68 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode20/">Leetcode-20.有效的括号(Valid Parentheses)</a></h1>
+						<span>Sep 13, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="20-有效的括号-valid-parentheses">20.有效的括号(Valid Parentheses)</h3>
+
+<p>本题用到了栈，isMatch用来判断括号是否匹配，遍历字符串，如果是左括号则入栈，否则判断是否为空，为空则直接返回false</p>
+
+<p>栈的目的是在遍历中，一个右括号如果能和栈顶括号匹配则出栈，最终如果栈不为空，返回false即可</p>
+
+<pre><code class="language-java">import java.util.Stack;
+
+class Solution {
+    public boolean isMatch(char l, char r) {
+        return (l == '[' &amp;&amp; r == ']') || (l == '(' &amp;&amp; r == ')') || (l == '{' &amp;&amp; r == '}');
+    }
+
+    public boolean isValid(String s) {
+        Stack&lt;Character&gt; stack = new Stack&lt;Character&gt;();
+        if (s.length() % 2 != 0) {
+            return false;
+        }
+        for (int i = 0; i &lt; s.length(); i++) {
+            char item = s.charAt(i);
+
+            if (item == '[' || item == '(' || item == '{') {
+                stack.push(item);
+            } else {
+                if (stack.isEmpty()) {
+                    return false;
+                } else if (isMatch(stack.peek(), item)) {
+                    stack.pop();
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+}
+</code></pre>
+
+<p>执行用时：7ms 内存消耗：35.1MB</p>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -189,53 +251,6 @@
 
 				</div>
 				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode7/">Leetcode-7.整数反转(Reverse Integer)</a></h1>
-						<span>Sep 11, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<ul>
-<li><p>采用语言为Java</p></li>
-
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="7-整数反转-reverse-integer">7.整数反转(Reverse Integer)</h3>
-
-<p>该题要求将目标值反转，比如123转为321，主要是数学问题</p>
-
-<p>我们可以设置一个值last，从个位数开始保存，依次加入十位数、百位数等</p>
-
-<pre><code class="language-java">class Solution {
-    public int reverse(int x) {
-        long last = 0;
-        while (x != 0) {
-            last = last * 10 + x % 10;
-            x /= 10;
-        } 
-        if (last &lt; Integer.MIN_VALUE || last &gt; Integer.MAX_VALUE) {
-                last = 0;
-        }
-        return (int)last;
-    }
-}
-</code></pre>
-
-<p>执行用时：3ms 内存消耗：34.1MB</p>
-
-
-				</div>
-				
 
 				<div class="text-center">
 					
@@ -285,12 +300,23 @@
     <li class="page-item"><a class="page-link" href="https://fortressll.github.io/page/3/">3</a></li>
     
     
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="https://fortressll.github.io/page/4/">4</a></li>
+    
+    
     <li class="page-item">
     <a href="https://fortressll.github.io/page/3/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
     <li class="page-item">
-        <a href="https://fortressll.github.io/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="https://fortressll.github.io/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

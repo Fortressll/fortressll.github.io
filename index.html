@@ -58,15 +58,15 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode27/">Leetcode-27.移除元素(Remove ELement)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode155/">Leetcode-155.最小栈(Min Stack)</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode155/">Leetcode-155.最小栈(Min Stack)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode27/">Leetcode-27.移除元素(Remove ELement)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode20/">Leetcode-20.有效的括号(Valid Parentheses)</a></li>
+				<li><a href="https://fortressll.github.io/post/american-accent-training/">American Accent Training</a></li>
 				
 			</ul>
 		</div>
@@ -82,50 +82,6 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
-				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode27/">Leetcode-27.移除元素(Remove ELement)</a></h1>
-						<span>Sep 14, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<p>采用语言为Java</p>
-
-<ul>
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="27-移除元素-remove-element">27.移除元素(Remove ELement)</h3>
-
-<p>刚开始想了好久怎么把val值删除掉，其实只需要i,j两个指针，当遍历到不等于val值的元素时，将该值赋给指针i(从零开始)对应的数组即可，可以想象是新的数组覆盖了原来的数组</p>
-
-<pre><code class="language-java">class Solution {
-    public int removeElement(int[] nums, int val) {
-        int i = 0;
-        for (int j = 0; j &lt; nums.length; j++) {
-            if (nums[j] != val) {
-                nums[i] = nums[j];
-                i++;
-            }
-        }
-        return i;
-    }
-}
-</code></pre>
-
-<p>执行用时：1ms 内存消耗：35.5MB</p>
-
-
-				</div>
 				
 				<div class="post">
 
@@ -262,8 +218,8 @@ class MinStack {
 				<div class="post">
 
 					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode20/">Leetcode-20.有效的括号(Valid Parentheses)</a></h1>
-						<span>Sep 13, 2019</span>
+						<h1><a href="https://fortressll.github.io/post/leetcode27/">Leetcode-27.移除元素(Remove ELement)</a></h1>
+						<span>Sep 14, 2019</span>
 					</div>
 
 					
@@ -280,43 +236,81 @@ class MinStack {
 
 <h2 id="简单难度">简单难度</h2>
 
-<h3 id="20-有效的括号-valid-parentheses">20.有效的括号(Valid Parentheses)</h3>
+<h3 id="27-移除元素-remove-element">27.移除元素(Remove ELement)</h3>
 
-<p>本题用到了栈，isMatch用来判断括号是否匹配，遍历字符串，如果是左括号则入栈，否则判断是否为空，为空则直接返回false</p>
+<p>刚开始想了好久怎么把val值删除掉，其实只需要i,j两个指针，当遍历到不等于val值的元素时，将该值赋给指针i(从零开始)对应的数组即可，可以想象是新的数组覆盖了原来的数组</p>
 
-<p>栈的目的是在遍历中，一个右括号如果能和栈顶括号匹配则出栈，最终如果栈不为空，返回false即可</p>
-
-<pre><code class="language-java">import java.util.Stack;
-
-class Solution {
-    public boolean isMatch(char l, char r) {
-        return (l == '[' &amp;&amp; r == ']') || (l == '(' &amp;&amp; r == ')') || (l == '{' &amp;&amp; r == '}');
-    }
-
-    public boolean isValid(String s) {
-        Stack&lt;Character&gt; stack = new Stack&lt;Character&gt;();
-        if (s.length() % 2 != 0) {
-            return false;
-        }
-        for (int i = 0; i &lt; s.length(); i++) {
-            char item = s.charAt(i);
-
-            if (item == '[' || item == '(' || item == '{') {
-                stack.push(item);
-            } else {
-                if (stack.isEmpty()) {
-                    return false;
-                } else if (isMatch(stack.peek(), item)) {
-                    stack.pop();
-                }
+<pre><code class="language-java">class Solution {
+    public int removeElement(int[] nums, int val) {
+        int i = 0;
+        for (int j = 0; j &lt; nums.length; j++) {
+            if (nums[j] != val) {
+                nums[i] = nums[j];
+                i++;
             }
         }
-        return stack.isEmpty();
+        return i;
     }
 }
 </code></pre>
 
-<p>执行用时：7ms 内存消耗：35.1MB</p>
+<p>执行用时：1ms 内存消耗：35.5MB</p>
+
+
+				</div>
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/american-accent-training/">American Accent Training</a></h1>
+						<span>Sep 14, 2019</span>
+					</div>
+
+					
+
+<ul>
+<li><p>最近在看一个微课，关于英语口语的，都是从《老友记》、《生活大爆炸》之类各种各样美剧中摘的句子，内容都是一些美国人生活中很常用的表达，觉得很受用所以在这里记录一下~</p></li>
+
+<li><p>作为一个程序猿，无论是看论文还是日常，英语真的是超级重要，如果能讲一口American accent将在很大程度上给自身起到一个加分的作用，在这里推荐一本书，国内有引进，感兴趣可以买来翻着看看~</p></li>
+</ul>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/52d7bc7fc90a74e1.jpg" alt="" /></p>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/13d75d14052bf720.jpg" alt="" /></p>
+
+<p>如果不想看书，也可以去Youtube或者B站搜一个叫Coach Shane的大叔，讲的超级棒</p>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/b921a7cb29d88154.jpg" alt="" /></p>
+
+<ul>
+<li>废话不多说，下面开始了！</li>
+</ul>
+
+<h2 id="lesson1">Lesson1</h2>
+
+<ol>
+<li>&ndash;When&rsquo;s it due?    &ndash;It&rsquo;s due tomorrow.</li>
+<li>I was supposed to keep a journal all summer. It&rsquo;s due today.</li>
+<li>What time is the next bus due?</li>
+<li>The next meeting is due to be held in three month&rsquo;s time.</li>
+<li>What time is the Minister Lee due to arrive?</li>
+<li>And out rent is due&hellip;Yesterday.</li>
+<li>&ndash;When&rsquo;s your due date?    &ndash;Not until the early fall.</li>
+</ol>
+
+<h2 id="lesson2">Lesson2</h2>
+
+<ol>
+<li>Tell me a bit about yourself.</li>
+<li>&ndash;Would you like cream in your coffee?   &ndash;Yes,please,just a bit.</li>
+<li>I&rsquo;m just going out for a bit. See you later.</li>
+<li>I thought I could tell you a little about myself.</li>
+<li>Magazines are my passions, ever since I was a kid.</li>
+<li>I know most of your magazines inside out.</li>
+<li>All I really want is a chance or a position in your company.</li>
+<li>&ndash;Where do you see yourself in 10 years? &ndash;I want to be the best and work for a company where I can build a career.</li>
+<li>&ndash;Do you have any questions for us?  &ndash;None that I can think of.</li>
+</ol>
 
 
 				</div>
@@ -370,12 +364,23 @@ class Solution {
     <li class="page-item"><a class="page-link" href="https://fortressll.github.io/page/3/">3</a></li>
     
     
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="https://fortressll.github.io/page/4/">4</a></li>
+    
+    
     <li class="page-item">
     <a href="https://fortressll.github.io/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
     <li class="page-item">
-        <a href="https://fortressll.github.io/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="https://fortressll.github.io/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>
