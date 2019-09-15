@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="generator" content="Hugo 0.58.1" />
 	
-	<title>American Accent Training - 记录学习，记录生活</title>
+	<title>Leetcode-26.删除排序数组中的重复项(Remove Duplicates from Sorted Array) - 记录学习，记录生活</title>
 
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -85,55 +85,49 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1>American Accent Training</h1>
-						<span class="post-date"><a href="https://fortressll.github.io/post/american-accent-training/"># Sep 14, 2019</a></span>
+						<h1>Leetcode-26.删除排序数组中的重复项(Remove Duplicates from Sorted Array)</h1>
+						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode26/"># Sep 15, 2019</a></span>
 					</div>
 
 					
 
-<ul>
-<li><p>最近在看一个微课，关于英语口语的，都是从《老友记》、《生活大爆炸》之类各种各样美剧中摘的句子，内容都是一些美国人生活中很常用的表达，觉得很受用所以在这里记录一下~</p></li>
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
 
-<li><p>作为一个程序猿，无论是看论文还是日常，英语真的是超级重要，如果能讲一口American accent将在很大程度上给自身起到一个加分的作用，在这里推荐一本书，国内有引进，感兴趣可以买来翻着看看~</p></li>
-</ul>
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/52d7bc7fc90a74e1.jpg" alt="" /></p>
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/13d75d14052bf720.jpg" alt="" /></p>
-
-<p>如果不想看书，也可以去Youtube或者B站搜一个叫Coach Shane的大叔，讲的超级棒</p>
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/b921a7cb29d88154.jpg" alt="" /></p>
+<p>采用语言为Java</p>
 
 <ul>
-<li>废话不多说，下面开始了！</li>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
 </ul>
 
-<h2 id="lesson1">Lesson1</h2>
+<h2 id="简单难度">简单难度</h2>
 
-<ol>
-<li>&ndash;When&rsquo;s it due?    &ndash;It&rsquo;s due tomorrow.</li>
-<li>I was supposed to keep a journal all summer. It&rsquo;s due today.</li>
-<li>What time is the next bus due?</li>
-<li>The next meeting is due to be held in three month&rsquo;s time.</li>
-<li>What time is the Minister Lee due to arrive?</li>
-<li>And out rent is due&hellip;Yesterday.</li>
-<li>&ndash;When&rsquo;s your due date?    &ndash;Not until the early fall.</li>
-</ol>
+<h3 id="26-删除排序数组中的重复项-remove-duplicates-from-sorted-array">26.删除排序数组中的重复项(Remove Duplicates from Sorted Array)</h3>
 
-<h2 id="lesson2">Lesson2</h2>
+<p>这个题特别像之前做的27题，很简单的，用的是同一种方法即两个指针</p>
 
-<ol>
-<li>Tell me a bit about yourself.</li>
-<li>&ndash;Would you like cream in your coffee?   &ndash;Yes,please,just a bit.</li>
-<li>I&rsquo;m just going out for a bit. See you later.</li>
-<li>I thought I could tell you a little about myself.</li>
-<li>Magazines are my passions, ever since I was a kid.</li>
-<li>I know most of your magazines inside out.</li>
-<li>All I really want is a chance or a position in your company.</li>
-<li>&ndash;Where do you see yourself in 10 years? &ndash;I want to be the best and work for a company where I can build a career.</li>
-<li>&ndash;Do you have any questions for us?  &ndash;None that I can think of.</li>
-</ol>
+<pre><code class="language-java">class Solution {
+    public int removeDuplicates(int[] nums) {
+        int i = 0;
+        if (nums.length == 0) {
+            return 0;
+        }
+
+        for (int j = 0; j &lt; nums.length; j++) {
+            if (j == nums.length - 1) {
+                nums[i] = nums[j];
+            } else if (nums[j] != nums[j+1]) {
+                nums[i] = nums[j];
+                i++;
+            }
+        }
+        return i+1;
+    }
+}
+</code></pre>
+
+<p>执行用时：2ms 内存消耗：43.4MB</p>
 
 
 				</div>

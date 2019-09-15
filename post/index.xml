@@ -6,10 +6,23 @@
     <description>Recent content in Posts on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 14 Sep 2019 17:30:13 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Sep 2019 15:00:24 +0800</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode-26.删除排序数组中的重复项(Remove Duplicates from Sorted Array)</title>
+      <link>https://fortressll.github.io/post/leetcode26/</link>
+      <pubDate>Sun, 15 Sep 2019 15:00:24 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode26/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  简单难度 26.删除排序数组中的重复项(Remove Duplicates from Sorted Array) 这个题特别像之前做的27题，很简单的，用的是同一种方法即两个指针
+class Solution { public int removeDuplicates(int[] nums) { int i = 0; if (nums.length == 0) { return 0; } for (int j = 0; j &amp;lt; nums.length; j++) { if (j == nums.length - 1) { nums[i] = nums[j]; } else if (nums[j] != nums[j+1]) { nums[i] = nums[j]; i++; } } return i+1; } }  执行用时：2ms 内存消耗：43.</description>
+    </item>
     
     <item>
       <title>Leetcode-155.最小栈(Min Stack)</title>
