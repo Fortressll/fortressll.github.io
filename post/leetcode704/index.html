@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="generator" content="Hugo 0.58.1" />
 	
-	<title>Categories - 记录学习，记录生活</title>
+	<title>Leetcode-704.二分查找(Binary Search) - 记录学习，记录生活</title>
 
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -22,7 +22,7 @@
 	<![endif]-->
 
 	
-	<link href="https://fortressll.github.io/categories/index.xml" rel="alternate" type="application/rss+xml" title="小乐的博客" />
+	<link href="" rel="alternate" type="application/rss+xml" title="小乐的博客" />
 </head>
 <body class="scheme-darkbrown">
 
@@ -82,10 +82,51 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
-				
+				<div class="post">
 
-				<div class="text-center">
+					<div class="post-heading">
+						<h1>Leetcode-704.二分查找(Binary Search)</h1>
+						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode704/"># Sep 16, 2019</a></span>
+					</div>
+
 					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="704-二分查找-binary-search">704.二分查找(Binary Search)</h3>
+
+<p>最基本的二分查找</p>
+
+<pre><code class="language-java">class Solution {
+    public int search(int[] nums, int target) {
+        int low = 0;
+        int high = nums.length - 1;
+        while (low &lt;= high) {
+            int mid = low + (high - low) / 2;
+            if (target &lt; nums[mid]) {
+                high -= 1;
+            } else if (target &gt; nums[mid]){
+                low += 1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
+    }
+}
+</code></pre>
+
+<p>执行用时：5ms 内存消耗：49.1MB</p>
 
 
 				</div>

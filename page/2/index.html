@@ -58,15 +58,15 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode35/">Leetcode-35.探索插入位置(Search Insert Position)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode704/">Leetcode-704.二分查找(Binary Search)</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode26/">Leetcode-26.删除排序数组中的重复项(Remove Duplicates from Sorted Array)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode35/">Leetcode-35.探索插入位置(Search Insert Position)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode155/">Leetcode-155.最小栈(Min Stack)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode26/">Leetcode-26.删除排序数组中的重复项(Remove Duplicates from Sorted Array)</a></li>
 				
 			</ul>
 		</div>
@@ -82,6 +82,138 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode155/">Leetcode-155.最小栈(Min Stack)</a></h1>
+						<span>Sep 14, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="155-最小栈-min-stack">155.最小栈(Min Stack)</h3>
+
+<h3 id="解法一">解法一</h3>
+
+<p>题目要求设计一个栈，于是开始造轮子，定义数组作为栈，其他部分按照题目要求一点一点写就好，注意要判断是否溢出，这也是很麻烦的一点，因为数组长度定义不好的话，提交时只要测试用例够长就会溢出</p>
+
+<pre><code class="language-java">import java.util.EmptyStackException;
+
+class MinStack {
+    private int[] array;
+    private int top;
+    private final static int size = 10000;
+    /** initialize your data structure here. */
+    public MinStack() {
+        array = new int[size];
+        top = -1;
+    }
+
+    public void push(int x) {
+        if (top == size - 1) {
+            throw new StackOverflowError();
+        } else {
+            array[++top] = x;
+        }
+    }
+
+    public void pop() {
+        if (top == -1) {
+            throw new EmptyStackException();
+        }
+        array[top] = array[top+1];
+        top--;
+    }
+
+    public int top() {
+        if (top == -1) {
+            throw new EmptyStackException();
+        }
+        return array[top];
+    }
+
+    public int getMin() {
+        if (top == -1) {
+            throw new EmptyStackException();
+        }
+        int min = array[0];
+        for (int i = 1; i &lt;= top; i++) {
+            if (array[i] &lt; min)
+                min = array[i];
+        }
+        return min;
+    }
+}
+</code></pre>
+
+<p>执行用时：132ms 内存消耗：47.3MB</p>
+
+<h3 id="解法二">解法二</h3>
+
+<p>我们人为定义一个辅助的栈box，用来存栈中最小的元素,存放数据的栈data也是利用java.util.Stack包里现成的</p>
+
+<pre><code class="language-java">import java.util.Stack;
+import java.util.EmptyStackException;
+
+class MinStack {
+    private Stack&lt;Integer&gt; data;
+    private Stack&lt;Integer&gt; box;
+
+    /** initialize your data structure here. */
+    public MinStack() {
+        data = new Stack&lt;&gt;();
+        box = new Stack&lt;&gt;();
+    }
+
+    public void push(int x) {
+        data.add(x);
+        if (box.isEmpty() || box.peek() &gt;= x) {
+            box.add(x);
+        } else {
+            box.add(box.peek());
+        }
+    }
+
+    public void pop() {
+        if (!data.isEmpty()) {
+            data.pop();
+            box.pop();
+        }
+    }
+
+    public int top() {
+        if (!data.isEmpty()) {
+            return data.peek();
+        }
+        throw new StackOverflowError();
+    }
+
+    public int getMin() {
+        if (!data.isEmpty()) {
+            return box.peek();
+        }
+        throw new StackOverflowError();
+    }
+}
+</code></pre>
+
+<p>执行用时：101ms 内存消耗：44.6MB</p>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -183,68 +315,6 @@
 
 				</div>
 				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode20/">Leetcode-20.有效的括号(Valid Parentheses)</a></h1>
-						<span>Sep 13, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<p>采用语言为Java</p>
-
-<ul>
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="20-有效的括号-valid-parentheses">20.有效的括号(Valid Parentheses)</h3>
-
-<p>本题用到了栈，isMatch用来判断括号是否匹配，遍历字符串，如果是左括号则入栈，否则判断是否为空，为空则直接返回false</p>
-
-<p>栈的目的是在遍历中，一个右括号如果能和栈顶括号匹配则出栈，最终如果栈不为空，返回false即可</p>
-
-<pre><code class="language-java">import java.util.Stack;
-
-class Solution {
-    public boolean isMatch(char l, char r) {
-        return (l == '[' &amp;&amp; r == ']') || (l == '(' &amp;&amp; r == ')') || (l == '{' &amp;&amp; r == '}');
-    }
-
-    public boolean isValid(String s) {
-        Stack&lt;Character&gt; stack = new Stack&lt;Character&gt;();
-        if (s.length() % 2 != 0) {
-            return false;
-        }
-        for (int i = 0; i &lt; s.length(); i++) {
-            char item = s.charAt(i);
-
-            if (item == '[' || item == '(' || item == '{') {
-                stack.push(item);
-            } else {
-                if (stack.isEmpty()) {
-                    return false;
-                } else if (isMatch(stack.peek(), item)) {
-                    stack.pop();
-                }
-            }
-        }
-        return stack.isEmpty();
-    }
-}
-</code></pre>
-
-<p>执行用时：7ms 内存消耗：35.1MB</p>
-
-
-				</div>
-				
 
 				<div class="text-center">
 					
@@ -302,7 +372,18 @@ class Solution {
         
     
     
-    <li class="page-item"><a class="page-link" href="https://fortressll.github.io/page/4/">4</a></li>
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="https://fortressll.github.io/page/5/">5</a></li>
     
     
     <li class="page-item">
@@ -310,7 +391,7 @@ class Solution {
     </li>
     
     <li class="page-item">
-        <a href="https://fortressll.github.io/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="https://fortressll.github.io/page/5/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>
