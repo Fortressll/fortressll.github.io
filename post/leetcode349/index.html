@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="generator" content="Hugo 0.58.1" />
 	
-	<title>Leetcode-7.整数反转(Reverse Integer) - 记录学习，记录生活</title>
+	<title>Leetcode-349.两个数组的交集(Intersection of Two Arrays) - 记录学习，记录生活</title>
 
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -85,17 +85,17 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1>Leetcode-7.整数反转(Reverse Integer)</h1>
-						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode7/"># Sep 11, 2019</a></span>
+						<h1>Leetcode-349.两个数组的交集(Intersection of Two Arrays)</h1>
+						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode349/"># Sep 16, 2019</a></span>
 					</div>
 
 					
 
 <p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
 
-<ul>
-<li><p>采用语言为Java</p></li>
+<p>采用语言为Java</p>
 
+<ul>
 <li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
 
 <li><p>因为题号和题名都有，题目描述就不写了</p></li>
@@ -103,28 +103,69 @@
 
 <h2 id="简单难度">简单难度</h2>
 
-<h3 id="7-整数反转-reverse-integer">7.整数反转(Reverse Integer)</h3>
+<h3 id="349-两个数组的交集-intersection-of-two-arrays">349.两个数组的交集(Intersection of Two Arrays)</h3>
 
-<p>该题要求将目标值反转，比如123转为321，主要是数学问题</p>
+<h3 id="解法一">解法一</h3>
 
-<p>我们可以设置一个值last，从个位数开始保存，依次加入十位数、百位数等</p>
+<p>题目要求两个数组的交集，习惯性遍历两个数组来做，但是时间复杂度就会很高了。先对两个数组排序，然后选择较短的那个数组长度定义新数组，比较两个数组，将相同且新数组中没有的元素添加至新数组。注意：因为新数组长度可能较长，最后可能会有默认值0，所以截取其实际长度(index)作为返回值</p>
+
+<p>笔记：Java中的Arrays.copyOfRange()函数用来截取数组中的某一段，就像是Python中的切片操作</p>
 
 <pre><code class="language-java">class Solution {
-    public int reverse(int x) {
-        long last = 0;
-        while (x != 0) {
-            last = last * 10 + x % 10;
-            x /= 10;
-        } 
-        if (last &lt; Integer.MIN_VALUE || last &gt; Integer.MAX_VALUE) {
-                last = 0;
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int len = nums1.length &gt; nums2.length ? nums2.length : nums1.length;
+        int[] result = new int[len];
+        int index = 0;
+
+        for (int s1: nums1) {
+            for (int s2: nums2) {
+                if (s1 == s2 &amp;&amp; index == 0) {
+                    result[index++] = s1;
+                } else  if (s1 == s2 &amp;&amp; s1 != result[index-1]) {
+                    result[index++] = s1;
+                }
+            }
         }
-        return (int)last;
+
+        return Arrays.copyOfRange(result, 0, index);
     }
 }
 </code></pre>
 
-<p>执行用时：3ms 内存消耗：34.1MB</p>
+<p>执行用时：18ms 内存消耗：38.3MB</p>
+
+<h3 id="解法二">解法二</h3>
+
+<p>用了HashSet,也就是集合，将给定的两个数组都转为集合后，就可以直接用集合的交集函数，再将集合转为数组即可达到题目要求</p>
+
+<p>笔记：Java中的retainAll()函数用来求集合</p>
+
+<pre><code class="language-java">import java.util.HashSet;
+
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet&lt;Integer&gt; set1 = new HashSet&lt;Integer&gt;();
+        HashSet&lt;Integer&gt; set2 = new HashSet&lt;Integer&gt;();
+        for (Integer s1: nums1)
+            set1.add(s1);
+        for (Integer s2: nums2)
+            set2.add(s2);
+
+        set1.retainAll(set2);
+
+        int[] result = new int[set1.size()];
+        int i = 0;
+        for (int s1: set1)
+            result[i++] = s1;
+
+        return result;
+    }
+}
+</code></pre>
+
+<p>执行用时：9ms 内存消耗：37.4MB</p>
 
 
 				</div>

@@ -58,15 +58,15 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode704/">Leetcode-704.二分查找(Binary Search)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode349/">Leetcode-349.两个数组的交集(Intersection of Two Arrays)</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode35/">Leetcode-35.探索插入位置(Search Insert Position)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode704/">Leetcode-704.二分查找(Binary Search)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode26/">Leetcode-26.删除排序数组中的重复项(Remove Duplicates from Sorted Array)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode35/">Leetcode-35.探索插入位置(Search Insert Position)</a></li>
 				
 			</ul>
 		</div>
@@ -82,6 +82,62 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/american-accent-training/">American Accent Training</a></h1>
+						<span>Sep 14, 2019</span>
+					</div>
+
+					
+
+<ul>
+<li><p>最近在看一个微课，关于英语口语的，都是从《老友记》、《生活大爆炸》之类各种各样美剧中摘的句子，内容都是一些美国人生活中很常用的表达，觉得很受用所以在这里记录一下~</p></li>
+
+<li><p>作为一个程序猿，无论是看论文还是日常，英语真的是超级重要，如果能讲一口American accent将在很大程度上给自身起到一个加分的作用，在这里推荐一本书，国内有引进，感兴趣可以买来翻着看看~</p></li>
+</ul>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/52d7bc7fc90a74e1.jpg" alt="" /></p>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/13d75d14052bf720.jpg" alt="" /></p>
+
+<p>如果不想看书，也可以去Youtube或者B站搜一个叫Coach Shane的大叔，讲的超级棒</p>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/b921a7cb29d88154.jpg" alt="" /></p>
+
+<ul>
+<li>废话不多说，下面开始了！</li>
+</ul>
+
+<h2 id="lesson1">Lesson1</h2>
+
+<ol>
+<li>&ndash;When&rsquo;s it due?    &ndash;It&rsquo;s due tomorrow.</li>
+<li>I was supposed to keep a journal all summer. It&rsquo;s due today.</li>
+<li>What time is the next bus due?</li>
+<li>The next meeting is due to be held in three month&rsquo;s time.</li>
+<li>What time is the Minister Lee due to arrive?</li>
+<li>And out rent is due&hellip;Yesterday.</li>
+<li>&ndash;When&rsquo;s your due date?    &ndash;Not until the early fall.</li>
+</ol>
+
+<h2 id="lesson2">Lesson2</h2>
+
+<ol>
+<li>Tell me a bit about yourself.</li>
+<li>&ndash;Would you like cream in your coffee?   &ndash;Yes,please,just a bit.</li>
+<li>I&rsquo;m just going out for a bit. See you later.</li>
+<li>I thought I could tell you a little about myself.</li>
+<li>Magazines are my passions, ever since I was a kid.</li>
+<li>I know most of your magazines inside out.</li>
+<li>All I really want is a chance or a position in your company.</li>
+<li>&ndash;Where do you see yourself in 10 years? &ndash;I want to be the best and work for a company where I can build a career.</li>
+<li>&ndash;Do you have any questions for us?  &ndash;None that I can think of.</li>
+</ol>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -202,51 +258,6 @@ class Solution {
 </code></pre>
 
 <p>执行用时：5ms 内存消耗：36.1MB</p>
-
-
-				</div>
-				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode9/">Leetcode-9.回文数(Palindrome Number)</a></h1>
-						<span>Sep 11, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<p>采用语言为Java</p>
-
-<ul>
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="9-回文数-palindrome-number">9.回文数(Palindrome Number)</h3>
-
-<p>本来看完题目不想用转字符串数组的方法做来着，但是想了会还是没想出来数学方法，先做了再说</p>
-
-<p>还是一个low,一个high，判断数组对应位置是否相等</p>
-
-<pre><code class="language-java">class Solution {
-    public boolean isPalindrome(int x) {
-        char[] str = (&quot;&quot;+x).toCharArray();
-        int high = str.length-1;
-        for (int low = 0; low &lt;= high; low++) {
-            if(str[low] != str[high-low])
-                return false;
-        }
-        return true;
-    }
-}
-</code></pre>
-
-<p>执行用时：19ms 内存消耗：39.1MB</p>
 
 
 				</div>
