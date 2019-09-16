@@ -6,10 +6,23 @@
     <description>Recent content on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 15 Sep 2019 15:00:24 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 16 Sep 2019 14:05:58 +0800</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode-35.探索插入位置(Search Insert Position)</title>
+      <link>https://fortressll.github.io/post/leetcode35/</link>
+      <pubDate>Mon, 16 Sep 2019 14:05:58 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode35/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  简单难度 35.探索插入位置(Search Insert Position) 额~这个题还是很简单的，都有点不好意思写了，遍历下就完事了。当然是没考虑内存的情况，击败不了多少用户
+class Solution { public int searchInsert(int[] nums, int target) { int index = 0; for (int i = 0; i &amp;lt; nums.length; i++) { if (nums[i] == target || nums[i] &amp;gt; target) { index = i; break; } else { index = i + 1; } } System.out.println(index); return index; } }  执行用时：3ms 内存消耗：39.7MB</description>
+    </item>
     
     <item>
       <title>Leetcode-26.删除排序数组中的重复项(Remove Duplicates from Sorted Array)</title>

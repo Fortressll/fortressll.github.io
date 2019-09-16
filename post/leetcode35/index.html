@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="generator" content="Hugo 0.58.1" />
 	
-	<title>Leetcode-27.移除元素(Remove ELement) - 记录学习，记录生活</title>
+	<title>Leetcode-35.探索插入位置(Search Insert Position) - 记录学习，记录生活</title>
 
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -85,8 +85,8 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1>Leetcode-27.移除元素(Remove ELement)</h1>
-						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode27/"># Sep 14, 2019</a></span>
+						<h1>Leetcode-35.探索插入位置(Search Insert Position)</h1>
+						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode35/"># Sep 16, 2019</a></span>
 					</div>
 
 					
@@ -103,25 +103,29 @@
 
 <h2 id="简单难度">简单难度</h2>
 
-<h3 id="27-移除元素-remove-element">27.移除元素(Remove ELement)</h3>
+<h3 id="35-探索插入位置-search-insert-position">35.探索插入位置(Search Insert Position)</h3>
 
-<p>刚开始想了好久怎么把val值删除掉，其实只需要i,j两个指针，当遍历到不等于val值的元素时，将该值赋给指针i(从零开始)对应的数组即可，可以想象是新的数组覆盖了原来的数组</p>
+<p>额~这个题还是很简单的，都有点不好意思写了，遍历下就完事了。当然是没考虑内存的情况，击败不了多少用户</p>
 
 <pre><code class="language-java">class Solution {
-    public int removeElement(int[] nums, int val) {
-        int i = 0;
-        for (int j = 0; j &lt; nums.length; j++) {
-            if (nums[j] != val) {
-                nums[i] = nums[j];
-                i++;
+    public int searchInsert(int[] nums, int target) {
+        int index = 0;
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (nums[i] == target || nums[i] &gt; target) {
+                index = i;
+                break;
+            }
+            else {
+                index = i + 1;
             }
         }
-        return i;
+        System.out.println(index);
+        return index;
     }
 }
 </code></pre>
 
-<p>执行用时：1ms 内存消耗：35.5MB</p>
+<p>执行用时：3ms 内存消耗：39.7MB</p>
 
 
 				</div>
