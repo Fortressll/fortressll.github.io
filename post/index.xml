@@ -6,7 +6,7 @@
     <description>Recent content in Posts on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 16 Sep 2019 15:04:47 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 17 Sep 2019 09:20:58 +0800</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Leetcode-349.两个数组的交集(Intersection of Two Arrays)</title>
       <link>https://fortressll.github.io/post/leetcode349/</link>
-      <pubDate>Mon, 16 Sep 2019 15:04:47 +0800</pubDate>
+      <pubDate>Tue, 17 Sep 2019 09:20:58 +0800</pubDate>
       
       <guid>https://fortressll.github.io/post/leetcode349/</guid>
       <description>采用语言为Java
@@ -23,6 +23,19 @@
   简单难度 349.两个数组的交集(Intersection of Two Arrays) 解法一 题目要求两个数组的交集，习惯性遍历两个数组来做，但是时间复杂度就会很高了。先对两个数组排序，然后选择较短的那个数组长度定义新数组，比较两个数组，将相同且新数组中没有的元素添加至新数组。注意：因为新数组长度可能较长，最后可能会有默认值0，所以截取其实际长度(index)作为返回值
 笔记：Java中的Arrays.copyOfRange()函数用来截取数组中的某一段，就像是Python中的切片操作
 class Solution { public int[] intersection(int[] nums1, int[] nums2) { Arrays.sort(nums1); Arrays.sort(nums2); int len = nums1.length &amp;gt; nums2.length ? nums2.length : nums1.length; int[] result = new int[len]; int index = 0; for (int s1: nums1) { for (int s2: nums2) { if (s1 == s2 &amp;amp;&amp;amp; index == 0) { result[index++] = s1; } else if (s1 == s2 &amp;amp;&amp;amp; s1 !</description>
+    </item>
+    
+    <item>
+      <title>Leetcode-58.最后一个单词的长度(Length of Last Word)</title>
+      <link>https://fortressll.github.io/post/leetcode58/</link>
+      <pubDate>Mon, 16 Sep 2019 15:04:47 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode58/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  简单难度 58.最后一个单词的长度(Length of Last Word) 思路就是从后往前遍历，把字符串末尾的空格全部去掉，然后返回从末尾到下一个空格的长度
+class Solution { public int lengthOfLastWord(String s) { int count = 0; int len = s.length(); while (len &amp;gt; 1 &amp;amp;&amp;amp; s.charAt(len-1) == &#39; &#39;) len--; for (int i = len - 1; i &amp;gt;= 0; i--) { if (s.charAt(i) != &#39; &#39;) { count++; } else { return count; } } return count; } }  执行用时：0ms 内存消耗：35.</description>
     </item>
     
     <item>

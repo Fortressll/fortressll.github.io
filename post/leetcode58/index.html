@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="generator" content="Hugo 0.58.1" />
 	
-	<title>Leetcode-704.二分查找(Binary Search) - 记录学习，记录生活</title>
+	<title>Leetcode-58.最后一个单词的长度(Length of Last Word) - 记录学习，记录生活</title>
 
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -85,8 +85,8 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1>Leetcode-704.二分查找(Binary Search)</h1>
-						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode704/"># Sep 16, 2019</a></span>
+						<h1>Leetcode-58.最后一个单词的长度(Length of Last Word)</h1>
+						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode58/"># Sep 16, 2019</a></span>
 					</div>
 
 					
@@ -103,30 +103,29 @@
 
 <h2 id="简单难度">简单难度</h2>
 
-<h3 id="704-二分查找-binary-search">704.二分查找(Binary Search)</h3>
+<h3 id="58-最后一个单词的长度-length-of-last-word">58.最后一个单词的长度(Length of Last Word)</h3>
 
-<p>最基本的二分查找</p>
+<p>思路就是从后往前遍历，把字符串末尾的空格全部去掉，然后返回从末尾到下一个空格的长度</p>
 
 <pre><code class="language-java">class Solution {
-    public int search(int[] nums, int target) {
-        int low = 0;
-        int high = nums.length - 1;
-        while (low &lt;= high) {
-            int mid = low + (high - low) / 2;
-            if (target &lt; nums[mid]) {
-                high -= 1;
-            } else if (target &gt; nums[mid]){
-                low += 1;
+    public int lengthOfLastWord(String s) {
+        int count = 0;
+        int len = s.length();
+        while (len &gt; 1 &amp;&amp; s.charAt(len-1) == ' ')
+            len--;
+        for (int i = len - 1; i &gt;= 0; i--) {
+            if (s.charAt(i) != ' ') {
+                count++;
             } else {
-                return mid;
+                return count;
             }
         }
-        return -1;
+        return count;
     }
 }
 </code></pre>
 
-<p>执行用时：5ms 内存消耗：49.1MB</p>
+<p>执行用时：0ms 内存消耗：35.5MB</p>
 
 
 				</div>
