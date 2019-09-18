@@ -6,10 +6,25 @@
     <description>Recent content in Posts on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Tue, 17 Sep 2019 09:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2019 15:10:20 +0800</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode-217&amp;&amp;219.存在重复元素(Contains Duplicate)相关</title>
+      <link>https://fortressll.github.io/post/leetcode217and218/</link>
+      <pubDate>Wed, 18 Sep 2019 15:10:20 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode217and218/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  简单难度 217.存在重复元素(Contains Duplicate) 解法一 如果我们直接遍历做这道题，时间复杂度会有O(n^2)，我们可以先对数组排个序就可以通过了
+class Solution { public boolean containsDuplicate(int[] nums) { Set&amp;lt;Integer&amp;gt; set = new HashSet&amp;lt;&amp;gt;(nums.length); for (int x: nums) { if (set.contains(x)) return true; set.add(x); } return false; } }  执行用时：9ms 内存消耗：48MB
+解法二 用了哈希表，在线性的时间复杂度就可以解决，记住这个点，以后能用就用
+class Solution { public boolean containsDuplicate(int[] nums) { Set&amp;lt;Integer&amp;gt; set = new HashSet&amp;lt;&amp;gt;(nums.length); for (int x: nums) { if (set.contains(x)) return true; set.add(x); } return false; } }  执行用时：14ms 内存消耗：44.</description>
+    </item>
     
     <item>
       <title>Leetcode-349.两个数组的交集(Intersection of Two Arrays)</title>

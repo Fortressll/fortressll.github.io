@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="generator" content="Hugo 0.58.1" />
 	
-	<title>Leetcode-26.删除排序数组中的重复项(Remove Duplicates from Sorted Array) - 记录学习，记录生活</title>
+	<title>Leetcode-217&amp;&amp;219.存在重复元素(Contains Duplicate)相关 - 记录学习，记录生活</title>
 
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -85,8 +85,8 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1>Leetcode-26.删除排序数组中的重复项(Remove Duplicates from Sorted Array)</h1>
-						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode26/"># Sep 15, 2019</a></span>
+						<h1>Leetcode-217&amp;&amp;219.存在重复元素(Contains Duplicate)相关</h1>
+						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode217and218/"># Sep 18, 2019</a></span>
 					</div>
 
 					
@@ -103,31 +103,71 @@
 
 <h2 id="简单难度">简单难度</h2>
 
-<h3 id="26-删除排序数组中的重复项-remove-duplicates-from-sorted-array">26.删除排序数组中的重复项(Remove Duplicates from Sorted Array)</h3>
+<h3 id="217-存在重复元素-contains-duplicate">217.存在重复元素(Contains Duplicate)</h3>
 
-<p>这个题特别像之前做的27题，很简单的，用的是同一种方法即两个指针</p>
+<h3 id="解法一">解法一</h3>
+
+<p>如果我们直接遍历做这道题，时间复杂度会有O(n^2)，我们可以先对数组排个序就可以通过了</p>
 
 <pre><code class="language-java">class Solution {
-    public int removeDuplicates(int[] nums) {
-        int i = 0;
-        if (nums.length == 0) {
-            return 0;
+    public boolean containsDuplicate(int[] nums) {
+        Set&lt;Integer&gt; set = new HashSet&lt;&gt;(nums.length);
+        for (int x: nums) {
+            if (set.contains(x))
+                return true;
+            set.add(x);
         }
-
-        for (int j = 0; j &lt; nums.length; j++) {
-            if (j == nums.length - 1) {
-                nums[i] = nums[j];
-            } else if (nums[j] != nums[j+1]) {
-                nums[i] = nums[j];
-                i++;
-            }
-        }
-        return i+1;
+        return false;
     }
 }
 </code></pre>
 
-<p>执行用时：2ms 内存消耗：43.4MB</p>
+<p>执行用时：9ms 内存消耗：48MB</p>
+
+<h3 id="解法二">解法二</h3>
+
+<p>用了哈希表，在线性的时间复杂度就可以解决，记住这个点，以后能用就用</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set&lt;Integer&gt; set = new HashSet&lt;&gt;(nums.length);
+        for (int x: nums) {
+            if (set.contains(x))
+                return true;
+            set.add(x);
+        }
+        return false;
+    }
+}
+</code></pre>
+
+<p>执行用时：14ms 内存消耗：44.5MB</p>
+
+<h3 id="219-存在重复元素ii-contains-duplicate-ii">219.存在重复元素II(Contains Duplicate II)</h3>
+
+<p>用到了HashMap,因为有key和value，个人觉得还挺好理解~要注意的一点就是存HashMap的时候，并不是按照i:nums[i]存的，而是把nums[i]存为key，i存为value，因为自带的get方法可以通过传入一个key来获取value，如果这样存就可以很方便的获得它的i值从而进行索引值i，j的计算，来达到题目要求。</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();
+
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (!map.containsKey(nums[i])) {
+                map.put(nums[i], i);
+            } else {
+                int j = map.get(nums[i]);
+                if (Math.abs(i - j) &lt;= k)
+                    return true;
+                map.put(nums[i], i);
+            }
+
+        }
+        return false;
+    }
+}
+</code></pre>
+
+<p>执行用时：29ms 内存消耗：49.1MB</p>
 
 
 				</div>

@@ -58,15 +58,15 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode349/">Leetcode-349.两个数组的交集(Intersection of Two Arrays)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode217and218/">Leetcode-217&amp;&amp;219.存在重复元素(Contains Duplicate)相关</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode58/">Leetcode-58.最后一个单词的长度(Length of Last Word)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode349/">Leetcode-349.两个数组的交集(Intersection of Two Arrays)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode704/">Leetcode-704.二分查找(Binary Search)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode58/">Leetcode-58.最后一个单词的长度(Length of Last Word)</a></li>
 				
 			</ul>
 		</div>
@@ -82,6 +82,96 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode217and218/">Leetcode-217&amp;&amp;219.存在重复元素(Contains Duplicate)相关</a></h1>
+						<span>Sep 18, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="217-存在重复元素-contains-duplicate">217.存在重复元素(Contains Duplicate)</h3>
+
+<h3 id="解法一">解法一</h3>
+
+<p>如果我们直接遍历做这道题，时间复杂度会有O(n^2)，我们可以先对数组排个序就可以通过了</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set&lt;Integer&gt; set = new HashSet&lt;&gt;(nums.length);
+        for (int x: nums) {
+            if (set.contains(x))
+                return true;
+            set.add(x);
+        }
+        return false;
+    }
+}
+</code></pre>
+
+<p>执行用时：9ms 内存消耗：48MB</p>
+
+<h3 id="解法二">解法二</h3>
+
+<p>用了哈希表，在线性的时间复杂度就可以解决，记住这个点，以后能用就用</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set&lt;Integer&gt; set = new HashSet&lt;&gt;(nums.length);
+        for (int x: nums) {
+            if (set.contains(x))
+                return true;
+            set.add(x);
+        }
+        return false;
+    }
+}
+</code></pre>
+
+<p>执行用时：14ms 内存消耗：44.5MB</p>
+
+<h3 id="219-存在重复元素ii-contains-duplicate-ii">219.存在重复元素II(Contains Duplicate II)</h3>
+
+<p>用到了HashMap,因为有key和value，个人觉得还挺好理解~要注意的一点就是存HashMap的时候，并不是按照i:nums[i]存的，而是把nums[i]存为key，i存为value，因为自带的get方法可以通过传入一个key来获取value，如果这样存就可以很方便的获得它的i值从而进行索引值i，j的计算，来达到题目要求。</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();
+
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (!map.containsKey(nums[i])) {
+                map.put(nums[i], i);
+            } else {
+                int j = map.get(nums[i]);
+                if (Math.abs(i - j) &lt;= k)
+                    return true;
+                map.put(nums[i], i);
+            }
+
+        }
+        return false;
+    }
+}
+</code></pre>
+
+<p>执行用时：29ms 内存消耗：49.1MB</p>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -219,55 +309,6 @@ class Solution {
 
 				</div>
 				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode704/">Leetcode-704.二分查找(Binary Search)</a></h1>
-						<span>Sep 16, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<p>采用语言为Java</p>
-
-<ul>
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="704-二分查找-binary-search">704.二分查找(Binary Search)</h3>
-
-<p>最基本的二分查找</p>
-
-<pre><code class="language-java">class Solution {
-    public int search(int[] nums, int target) {
-        int low = 0;
-        int high = nums.length - 1;
-        while (low &lt;= high) {
-            int mid = low + (high - low) / 2;
-            if (target &lt; nums[mid]) {
-                high -= 1;
-            } else if (target &gt; nums[mid]){
-                low += 1;
-            } else {
-                return mid;
-            }
-        }
-        return -1;
-    }
-}
-</code></pre>
-
-<p>执行用时：5ms 内存消耗：49.1MB</p>
-
-
-				</div>
-				
 
 				<div class="text-center">
 					
@@ -336,7 +377,16 @@ class Solution {
         
     
     
-    <li class="page-item"><a class="page-link" href="https://fortressll.github.io/post/page/5/">5</a></li>
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="https://fortressll.github.io/post/page/6/">6</a></li>
     
     
     <li class="page-item">
@@ -344,7 +394,7 @@ class Solution {
     </li>
     
     <li class="page-item">
-        <a href="https://fortressll.github.io/post/page/5/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="https://fortressll.github.io/post/page/6/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>
