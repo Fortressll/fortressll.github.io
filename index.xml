@@ -6,10 +6,23 @@
     <description>Recent content on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 19 Sep 2019 16:23:19 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Sep 2019 17:25:51 +0800</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode-83.删除排序链表中的重复元素(Remove Duplicates from Sorted List)</title>
+      <link>https://fortressll.github.io/post/leetcode83/</link>
+      <pubDate>Thu, 19 Sep 2019 17:25:51 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode83/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  简单难度 83.删除排序链表中的重复元素(Remove Duplicates from Sorted List) 参考了某大佬思路，题目要求是删除重复元素，首先判断链表是否为空或者链表是否只剩一个元素，这种情况直接返回就可以了；接下来进行递归操作，判断头节点值是否等于头节点后next节点的值，相等表明该元素重复，返回head.next值即可
+/** * Definition for singly-linked list. * public class ListNode { * int val; * ListNode next; * ListNode(int x) { val = x; } * } */ class Solution { public ListNode deleteDuplicates(ListNode head) { if (head == null || head.next == null) return head; head.next = deleteDuplicates(head.next); if (head.val == head.next.val) head = head.</description>
+    </item>
     
     <item>
       <title>Leetcode-21.合并两个有序链表(Merge Two Sorted Lists)</title>
