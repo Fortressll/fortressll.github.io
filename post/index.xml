@@ -6,10 +6,36 @@
     <description>Recent content in Posts on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 19 Sep 2019 17:25:51 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 21 Sep 2019 16:02:42 +0800</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode-136.只出现一次的数字(Single Number)</title>
+      <link>https://fortressll.github.io/post/leetcode136/</link>
+      <pubDate>Sat, 21 Sep 2019 16:02:42 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode136/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  136.只出现一次的数字(Single Number) 对已知数组排序，然后遍历数组，寻找只出现一次的元素
+class Solution { public int singleNumber(int[] nums) { Arrays.sort(nums); for (int i = 0; i &amp;lt; nums.length - 1; i+=2) { if (nums[i] != nums[i+1]) return nums[i]; } return nums[nums.length-1]; } }  执行用时：5ms 内存消耗：38.1MB</description>
+    </item>
+    
+    <item>
+      <title>Leetcode-88.合并两个有序数组(Merge Sorted Array)</title>
+      <link>https://fortressll.github.io/post/leetcode88/</link>
+      <pubDate>Sat, 21 Sep 2019 15:37:43 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode88/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  简单难度 88.合并两个有序数组(Merge Sorted Array) 把nums2里的元素直接接在nums1后面然后排序
+class Solution { public void merge(int[] nums1, int m, int[] nums2, int n) { int index = 0; for (int i = m; i &amp;lt; m + n; i++) { nums1[i] = nums2[index++]; } Arrays.sort(nums1); } }  执行用时：1ms 内存消耗：36.1MB</description>
+    </item>
     
     <item>
       <title>Leetcode-83.删除排序链表中的重复元素(Remove Duplicates from Sorted List)</title>
@@ -48,9 +74,9 @@
  LeetCode国内官网：https://leetcode-cn.com
  因为题号和题名都有，题目描述就不写了
   简单难度 217.存在重复元素(Contains Duplicate) 解法一 如果我们直接遍历做这道题，时间复杂度会有O(n^2)，我们可以先对数组排个序就可以通过了
-class Solution { public boolean containsDuplicate(int[] nums) { Set&amp;lt;Integer&amp;gt; set = new HashSet&amp;lt;&amp;gt;(nums.length); for (int x: nums) { if (set.contains(x)) return true; set.add(x); } return false; } }  执行用时：9ms 内存消耗：48MB
+class Solution { public boolean containsDuplicate(int[] nums) { Arrays.sort(nums); for (int i = 0; i &amp;lt; nums.length - 1; i++) { if (nums[i] == nums[i+1]) return true; } return false; } }  执行用时：9ms 内存消耗：48MB
 解法二 用了哈希表，在线性的时间复杂度就可以解决，记住这个点，以后能用就用
-class Solution { public boolean containsDuplicate(int[] nums) { Set&amp;lt;Integer&amp;gt; set = new HashSet&amp;lt;&amp;gt;(nums.length); for (int x: nums) { if (set.contains(x)) return true; set.add(x); } return false; } }  执行用时：14ms 内存消耗：44.</description>
+class Solution { public boolean containsDuplicate(int[] nums) { Set&amp;lt;Integer&amp;gt; set = new HashSet&amp;lt;&amp;gt;(nums.length); for (int x: nums) { if (set.contains(x)) return true; set.</description>
     </item>
     
     <item>

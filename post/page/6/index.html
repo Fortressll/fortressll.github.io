@@ -58,15 +58,15 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode83/">Leetcode-83.删除排序链表中的重复元素(Remove Duplicates from Sorted List)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode136/">Leetcode-136.只出现一次的数字(Single Number)</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode21/">Leetcode-21.合并两个有序链表(Merge Two Sorted Lists)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode88/">Leetcode-88.合并两个有序数组(Merge Sorted Array)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode217and218/">Leetcode-217&amp;&amp;219.存在重复元素(Contains Duplicate)相关</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode83/">Leetcode-83.删除排序链表中的重复元素(Remove Duplicates from Sorted List)</a></li>
 				
 			</ul>
 		</div>
@@ -82,6 +82,98 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode9/">Leetcode-9.回文数(Palindrome Number)</a></h1>
+						<span>Sep 11, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="9-回文数-palindrome-number">9.回文数(Palindrome Number)</h3>
+
+<p>本来看完题目不想用转字符串数组的方法做来着，但是想了会还是没想出来数学方法，先做了再说</p>
+
+<p>还是一个low,一个high，判断数组对应位置是否相等</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean isPalindrome(int x) {
+        char[] str = (&quot;&quot;+x).toCharArray();
+        int high = str.length-1;
+        for (int low = 0; low &lt;= high; low++) {
+            if(str[low] != str[high-low])
+                return false;
+        }
+        return true;
+    }
+}
+</code></pre>
+
+<p>执行用时：19ms 内存消耗：39.1MB</p>
+
+
+				</div>
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode7/">Leetcode-7.整数反转(Reverse Integer)</a></h1>
+						<span>Sep 11, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<ul>
+<li><p>采用语言为Java</p></li>
+
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="7-整数反转-reverse-integer">7.整数反转(Reverse Integer)</h3>
+
+<p>该题要求将目标值反转，比如123转为321，主要是数学问题</p>
+
+<p>我们可以设置一个值last，从个位数开始保存，依次加入十位数、百位数等</p>
+
+<pre><code class="language-java">class Solution {
+    public int reverse(int x) {
+        long last = 0;
+        while (x != 0) {
+            last = last * 10 + x % 10;
+            x /= 10;
+        } 
+        if (last &lt; Integer.MIN_VALUE || last &gt; Integer.MAX_VALUE) {
+                last = 0;
+        }
+        return (int)last;
+    }
+}
+</code></pre>
+
+<p>执行用时：3ms 内存消耗：34.1MB</p>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -147,93 +239,6 @@
 <p><img src="http://chuantu.xyz/t6/702/1568180219x3030586988.jpg" alt="" /></p>
 
 <p>训练细节如上图所示，本篇论文初看好像不是很难理解，但是还是建议对应相应的代码去自习扣一扣细节，可能会有不一样的认识。原文中的代码是Lua语言的，因为不是很了解Lua，所有我在Github上找到了Tensorflow版本的，也就是用Python语言的，慢慢啃还是由很多收获，希望大家可以去看一看，链接放在本篇开头部分，就这样~</p>
-
-
-				</div>
-				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode1/">LeetCode-1&amp;&amp;167.两数之和(Two Sum)相关</a></h1>
-						<span>Sep 9, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<ul>
-<li><p>心血来潮想学习刷刷LeetCode，从简单难度开始吧,采用的语言为Java</p></li>
-
-<li><p>附上LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="1-两数之和-two-sum">1.两数之和(Two Sum)</h3>
-
-<p>遍历一下，看看哪两个数字相加等于我们的目标值，返回他们的数组下标就可以了</p>
-
-<pre><code class="language-java">class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        int[] output = new int[2];
-        for (int i = 0; i &lt; nums.length; i++) {
-            for (int j = i + 1; j &lt; nums.length; j++) {
-                if (nums[i] + nums[j] == target) {
-                    output[0] = i;
-                    output[1] = j;
-                }
-            }
-        }
-
-        return output;
-    }
-</code></pre>
-
-<p>执行用时：72ms 内存消耗：38.5MB</p>
-
-<h3 id="167-两数之和ii-输入有序数组-two-sum-ii-input-array-is-sorted">167.两数之和II-输入有序数组(Two Sum II - Input array is sorted)</h3>
-
-<p>因为要求是有序数组，所以设置了两个指针low和high，判断对应数相加是否是目标值，若是则返回下标+1</p>
-
-<pre><code class="language-java">class Solution {
-    public int[] twoSum(int[] numbers, int target) {
-        int low = 0;
-        int high = numbers.length-1;
-        int[] output = new int[2];
-        while(low &lt; high) {
-            if (numbers[low] + numbers[high] == target) {
-                output[0] = low + 1;
-                output[1] = high + 1;
-            }
-            if (target - numbers[low] &lt; numbers[high]) {
-                    high--;
-            } else {
-                    low++;
-            }
-        }
-        return output;
-    }
-
-</code></pre>
-
-<p>执行用时：2ms 内存消耗：39.7MB</p>
-
-
-				</div>
-				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/my-first-blog/">关于小乐</a></h1>
-						<span>Sep 9, 2019</span>
-					</div>
-
-					<p>我的小小博客总算是开了，本应该在本科阶段就写写的，一直拖到了现在真是惭愧。平时可能会做点老师的小项目当当苦力，代码和学术方面能力都不怎么样，所以这个博客就作为一个学习的记录吧哈哈哈~欢迎互关微博或者加我的微信，希望可以向大家学到更多东西~</p>
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/f0d335c3bb990aeb.png" alt="" /></p>
 
 
 				</div>
@@ -320,12 +325,23 @@
     <li class="page-item active"><a class="page-link" href="https://fortressll.github.io/post/page/6/">6</a></li>
     
     
-    <li class="page-item disabled">
-    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="https://fortressll.github.io/post/page/7/">7</a></li>
+    
+    
+    <li class="page-item">
+    <a href="https://fortressll.github.io/post/page/7/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
     <li class="page-item">
-        <a href="https://fortressll.github.io/post/page/6/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="https://fortressll.github.io/post/page/7/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

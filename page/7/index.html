@@ -86,40 +86,72 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode136/">Leetcode-136.只出现一次的数字(Single Number)</a></h1>
-						<span>Sep 21, 2019</span>
+						<h1><a href="https://fortressll.github.io/post/leetcode1/">LeetCode-1&amp;&amp;167.两数之和(Two Sum)相关</a></h1>
+						<span>Sep 9, 2019</span>
 					</div>
 
 					
 
 <p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
 
-<p>采用语言为Java</p>
-
 <ul>
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+<li><p>心血来潮想学习刷刷LeetCode，从简单难度开始吧,采用的语言为Java</p></li>
+
+<li><p>附上LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
 
 <li><p>因为题号和题名都有，题目描述就不写了</p></li>
 </ul>
 
-<h3 id="136-只出现一次的数字-single-number">136.只出现一次的数字(Single Number)</h3>
+<h2 id="简单难度">简单难度</h2>
 
-<p>对已知数组排序，然后遍历数组，寻找只出现一次的元素</p>
+<h3 id="1-两数之和-two-sum">1.两数之和(Two Sum)</h3>
+
+<p>遍历一下，看看哪两个数字相加等于我们的目标值，返回他们的数组下标就可以了</p>
 
 <pre><code class="language-java">class Solution {
-    public int singleNumber(int[] nums) {
-        Arrays.sort(nums);
-
-        for (int i = 0; i &lt; nums.length - 1; i+=2) {
-            if (nums[i] != nums[i+1])
-                return nums[i];
+    public int[] twoSum(int[] nums, int target) {
+        int[] output = new int[2];
+        for (int i = 0; i &lt; nums.length; i++) {
+            for (int j = i + 1; j &lt; nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    output[0] = i;
+                    output[1] = j;
+                }
+            }
         }
-        return nums[nums.length-1];
+
+        return output;
     }
-}
 </code></pre>
 
-<p>执行用时：5ms 内存消耗：38.1MB</p>
+<p>执行用时：72ms 内存消耗：38.5MB</p>
+
+<h3 id="167-两数之和ii-输入有序数组-two-sum-ii-input-array-is-sorted">167.两数之和II-输入有序数组(Two Sum II - Input array is sorted)</h3>
+
+<p>因为要求是有序数组，所以设置了两个指针low和high，判断对应数相加是否是目标值，若是则返回下标+1</p>
+
+<pre><code class="language-java">class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int low = 0;
+        int high = numbers.length-1;
+        int[] output = new int[2];
+        while(low &lt; high) {
+            if (numbers[low] + numbers[high] == target) {
+                output[0] = low + 1;
+                output[1] = high + 1;
+            }
+            if (target - numbers[low] &lt; numbers[high]) {
+                    high--;
+            } else {
+                    low++;
+            }
+        }
+        return output;
+    }
+
+</code></pre>
+
+<p>执行用时：2ms 内存消耗：39.7MB</p>
 
 
 				</div>
@@ -127,90 +159,13 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode88/">Leetcode-88.合并两个有序数组(Merge Sorted Array)</a></h1>
-						<span>Sep 21, 2019</span>
+						<h1><a href="https://fortressll.github.io/post/my-first-blog/">关于小乐</a></h1>
+						<span>Sep 9, 2019</span>
 					</div>
 
-					
+					<p>我的小小博客总算是开了，本应该在本科阶段就写写的，一直拖到了现在真是惭愧。平时可能会做点老师的小项目当当苦力，代码和学术方面能力都不怎么样，所以这个博客就作为一个学习的记录吧哈哈哈~欢迎互关微博或者加我的微信，希望可以向大家学到更多东西~</p>
 
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<ul>
-<li><p>采用语言为Java</p></li>
-
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="88-合并两个有序数组-merge-sorted-array">88.合并两个有序数组(Merge Sorted Array)</h3>
-
-<p>把nums2里的元素直接接在nums1后面然后排序</p>
-
-<pre><code class="language-java">class Solution {
-    public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int index = 0;
-        for (int i = m; i &lt; m + n; i++) {
-            nums1[i] = nums2[index++];
-        }
-        Arrays.sort(nums1);
-    }
-}
-</code></pre>
-
-<p>执行用时：1ms 内存消耗：36.1MB</p>
-
-
-				</div>
-				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode83/">Leetcode-83.删除排序链表中的重复元素(Remove Duplicates from Sorted List)</a></h1>
-						<span>Sep 19, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<ul>
-<li><p>采用语言为Java</p></li>
-
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="83-删除排序链表中的重复元素-remove-duplicates-from-sorted-list">83.删除排序链表中的重复元素(Remove Duplicates from Sorted List)</h3>
-
-<p>参考了某大佬思路，题目要求是删除重复元素，首先判断链表是否为空或者链表是否只剩一个元素，这种情况直接返回就可以了；接下来进行递归操作，判断头节点值是否等于头节点后next节点的值，相等表明该元素重复，返回head.next值即可</p>
-
-<pre><code class="language-java">/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public ListNode deleteDuplicates(ListNode head) {
-        if (head == null || head.next == null)
-            return head;
-        head.next = deleteDuplicates(head.next);
-        if (head.val == head.next.val)
-            head = head.next;
-        return head;
-    }
-}
-</code></pre>
-
-<p>执行用时：2ms 内存消耗：37.4MB</p>
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/f0d335c3bb990aeb.png" alt="" /></p>
 
 
 				</div>
@@ -225,8 +180,8 @@ class Solution {
         <a href="https://fortressll.github.io/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
     </li>
     
-    <li class="page-item disabled">
-    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    <li class="page-item">
+    <a href="https://fortressll.github.io/page/6/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
     </li>
     
     
@@ -239,7 +194,7 @@ class Solution {
         
     
     
-    <li class="page-item active"><a class="page-link" href="https://fortressll.github.io/">1</a></li>
+    <li class="page-item"><a class="page-link" href="https://fortressll.github.io/">1</a></li>
     
     
     
@@ -292,6 +247,8 @@ class Solution {
         
     
     
+    <li class="page-item"><a class="page-link" href="https://fortressll.github.io/page/6/">6</a></li>
+    
     
     
     
@@ -301,11 +258,11 @@ class Solution {
         
     
     
-    <li class="page-item"><a class="page-link" href="https://fortressll.github.io/page/7/">7</a></li>
+    <li class="page-item active"><a class="page-link" href="https://fortressll.github.io/page/7/">7</a></li>
     
     
-    <li class="page-item">
-    <a href="https://fortressll.github.io/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    <li class="page-item disabled">
+    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
     <li class="page-item">
