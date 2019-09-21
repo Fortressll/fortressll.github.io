@@ -6,10 +6,25 @@
     <description>Recent content on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 21 Sep 2019 16:02:42 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 21 Sep 2019 16:57:16 +0800</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode-169.求众数(Majority Element)</title>
+      <link>https://fortressll.github.io/post/leetcode169/</link>
+      <pubDate>Sat, 21 Sep 2019 16:57:16 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode169/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  简单难度 169.求众数(Majority Element) 解法一 排序已知数组，对应下标length/2的位置恰好是众数
+class Solution { public int majorityElement(int[] nums) { Arrays.sort(nums); return nums[nums.length / 2]; } }  执行用时：2ms 内存消耗：41.5MB
+解法二 穷举，超级费时间
+class Solution { public int majorityElement(int[] nums) { int half = nums.length/2; for (int num : nums) { int count = 0; for (int item : nums) { if (item == num) { count += 1; } } if (count &amp;gt; half) { return num; } } return -1; } }  执行用时：1725ms 内存消耗：40.</description>
+    </item>
     
     <item>
       <title>Leetcode-136.只出现一次的数字(Single Number)</title>

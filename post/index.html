@@ -58,15 +58,15 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode136/">Leetcode-136.只出现一次的数字(Single Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode88/">Leetcode-88.合并两个有序数组(Merge Sorted Array)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode136/">Leetcode-136.只出现一次的数字(Single Number)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode83/">Leetcode-83.删除排序链表中的重复元素(Remove Duplicates from Sorted List)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode88/">Leetcode-88.合并两个有序数组(Merge Sorted Array)</a></li>
 				
 			</ul>
 		</div>
@@ -82,6 +82,72 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></h1>
+						<span>Sep 21, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="169-求众数-majority-element">169.求众数(Majority Element)</h3>
+
+<h3 id="解法一">解法一</h3>
+
+<p>排序已知数组，对应下标length/2的位置恰好是众数</p>
+
+<pre><code class="language-java">class Solution {
+     public int majorityElement(int[] nums) {
+        Arrays.sort(nums);
+        return nums[nums.length / 2];
+    }
+}
+</code></pre>
+
+<p>执行用时：2ms 内存消耗：41.5MB</p>
+
+<h3 id="解法二">解法二</h3>
+
+<p>穷举，超级费时间</p>
+
+<pre><code class="language-java">class Solution {
+    public int majorityElement(int[] nums) {
+        int half = nums.length/2;
+
+        for (int num : nums) {
+            int count = 0;
+            for (int item : nums) {
+                if (item == num) {
+                    count += 1;
+                }
+            }
+            if (count &gt; half) {
+                return num;
+            }
+        }
+        return -1;
+    }
+}
+</code></pre>
+
+<p>执行用时：1725ms 内存消耗：40.7MB</p>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -161,56 +227,6 @@
 </code></pre>
 
 <p>执行用时：1ms 内存消耗：36.1MB</p>
-
-
-				</div>
-				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode83/">Leetcode-83.删除排序链表中的重复元素(Remove Duplicates from Sorted List)</a></h1>
-						<span>Sep 19, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<ul>
-<li><p>采用语言为Java</p></li>
-
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="83-删除排序链表中的重复元素-remove-duplicates-from-sorted-list">83.删除排序链表中的重复元素(Remove Duplicates from Sorted List)</h3>
-
-<p>参考了某大佬思路，题目要求是删除重复元素，首先判断链表是否为空或者链表是否只剩一个元素，这种情况直接返回就可以了；接下来进行递归操作，判断头节点值是否等于头节点后next节点的值，相等表明该元素重复，返回head.next值即可</p>
-
-<pre><code class="language-java">/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public ListNode deleteDuplicates(ListNode head) {
-        if (head == null || head.next == null)
-            return head;
-        head.next = deleteDuplicates(head.next);
-        if (head.val == head.next.val)
-            head = head.next;
-        return head;
-    }
-}
-</code></pre>
-
-<p>执行用时：2ms 内存消耗：37.4MB</p>
 
 
 				</div>
