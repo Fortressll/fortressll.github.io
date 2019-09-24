@@ -58,15 +58,15 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode136/">Leetcode-136.只出现一次的数字(Single Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode88/">Leetcode-88.合并两个有序数组(Merge Sorted Array)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode136/">Leetcode-136.只出现一次的数字(Single Number)</a></li>
 				
 			</ul>
 		</div>
@@ -82,6 +82,61 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></h1>
+						<span>Sep 24, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="202-快乐数-happy-number">202.快乐数(Happy Number)</h3>
+
+<p>题目要求判断给定数是否是快乐数，利用HashSet，如果集合中不存在每位运算的平方和，则加入，否则集合中之前已经出现同样的数，说明再循环计算下去也一定不会是快乐数</p>
+
+<pre><code class="language-java">class Solution {
+    Set&lt;Integer&gt; set = new HashSet&lt;&gt;();
+    public boolean isHappy(int n) {
+        while (n != 1) {
+            n = happySquare(n);
+            if (set.contains(n)) {
+                return false;
+            } else {
+                set.add(n);
+            }
+        }
+        return true;
+    }
+    private int happySquare(int n) {
+        int result = 0;
+        do {
+            int last = n % 10;
+            result += last * last;
+            n /= 10;
+        } while (n &gt; 0);
+        return result;
+    }
+}
+</code></pre>
+
+<p>执行用时：3ms 内存消耗：33.6MB</p>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -190,47 +245,6 @@
 
 				</div>
 				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode88/">Leetcode-88.合并两个有序数组(Merge Sorted Array)</a></h1>
-						<span>Sep 21, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<ul>
-<li><p>采用语言为Java</p></li>
-
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="88-合并两个有序数组-merge-sorted-array">88.合并两个有序数组(Merge Sorted Array)</h3>
-
-<p>把nums2里的元素直接接在nums1后面然后排序</p>
-
-<pre><code class="language-java">class Solution {
-    public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int index = 0;
-        for (int i = m; i &lt; m + n; i++) {
-            nums1[i] = nums2[index++];
-        }
-        Arrays.sort(nums1);
-    }
-}
-</code></pre>
-
-<p>执行用时：1ms 内存消耗：36.1MB</p>
-
-
-				</div>
-				
 
 				<div class="text-center">
 					
@@ -317,7 +331,16 @@
         
     
     
-    <li class="page-item"><a class="page-link" href="https://fortressll.github.io/page/7/">7</a></li>
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="https://fortressll.github.io/page/8/">8</a></li>
     
     
     <li class="page-item">
@@ -325,7 +348,7 @@
     </li>
     
     <li class="page-item">
-        <a href="https://fortressll.github.io/page/7/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="https://fortressll.github.io/page/8/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="generator" content="Hugo 0.58.1" />
 	
-	<title>Leetcode-27.移除元素(Remove ELement) - 记录学习，记录生活</title>
+	<title>Leetcode-202.快乐数(Happy Number) - 记录学习，记录生活</title>
 
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -85,8 +85,8 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1>Leetcode-27.移除元素(Remove ELement)</h1>
-						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode27/"># Sep 14, 2019</a></span>
+						<h1>Leetcode-202.快乐数(Happy Number)</h1>
+						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode202/"># Sep 24, 2019</a></span>
 					</div>
 
 					
@@ -103,25 +103,36 @@
 
 <h2 id="简单难度">简单难度</h2>
 
-<h3 id="27-移除元素-remove-element">27.移除元素(Remove ELement)</h3>
+<h3 id="202-快乐数-happy-number">202.快乐数(Happy Number)</h3>
 
-<p>刚开始想了好久怎么把val值删除掉，其实只需要i,j两个指针，当遍历到不等于val值的元素时，将该值赋给指针i(从零开始)对应的数组即可，可以想象是新的数组覆盖了原来的数组</p>
+<p>题目要求判断给定数是否是快乐数，利用HashSet，如果集合中不存在每位运算的平方和，则加入，否则集合中之前已经出现同样的数，说明再循环计算下去也一定不会是快乐数</p>
 
 <pre><code class="language-java">class Solution {
-    public int removeElement(int[] nums, int val) {
-        int i = 0;
-        for (int j = 0; j &lt; nums.length; j++) {
-            if (nums[j] != val) {
-                nums[i] = nums[j];
-                i++;
+    Set&lt;Integer&gt; set = new HashSet&lt;&gt;();
+    public boolean isHappy(int n) {
+        while (n != 1) {
+            n = happySquare(n);
+            if (set.contains(n)) {
+                return false;
+            } else {
+                set.add(n);
             }
         }
-        return i;
+        return true;
+    }
+    private int happySquare(int n) {
+        int result = 0;
+        do {
+            int last = n % 10;
+            result += last * last;
+            n /= 10;
+        } while (n &gt; 0);
+        return result;
     }
 }
 </code></pre>
 
-<p>执行用时：1ms 内存消耗：35.5MB</p>
+<p>执行用时：3ms 内存消耗：33.6MB</p>
 
 
 				</div>
