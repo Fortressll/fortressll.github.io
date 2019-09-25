@@ -58,15 +58,15 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode100/">Leetcode-100.相同的树(Same Tree)</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode136/">Leetcode-136.只出现一次的数字(Single Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
 				
 			</ul>
 		</div>
@@ -82,6 +82,54 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode58/">Leetcode-58.最后一个单词的长度(Length of Last Word)</a></h1>
+						<span>Sep 16, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="58-最后一个单词的长度-length-of-last-word">58.最后一个单词的长度(Length of Last Word)</h3>
+
+<p>思路就是从后往前遍历，把字符串末尾的空格全部去掉，然后返回从末尾到下一个空格的长度</p>
+
+<pre><code class="language-java">class Solution {
+    public int lengthOfLastWord(String s) {
+        int count = 0;
+        int len = s.length();
+        while (len &gt; 1 &amp;&amp; s.charAt(len-1) == ' ')
+            len--;
+        for (int i = len - 1; i &gt;= 0; i--) {
+            if (s.charAt(i) != ' ') {
+                count++;
+            } else {
+                return count;
+            }
+        }
+        return count;
+    }
+}
+</code></pre>
+
+<p>执行用时：0ms 内存消耗：35.5MB</p>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -176,56 +224,6 @@
 </code></pre>
 
 <p>执行用时：3ms 内存消耗：39.7MB</p>
-
-
-				</div>
-				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode26/">Leetcode-26.删除排序数组中的重复项(Remove Duplicates from Sorted Array)</a></h1>
-						<span>Sep 15, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<p>采用语言为Java</p>
-
-<ul>
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="26-删除排序数组中的重复项-remove-duplicates-from-sorted-array">26.删除排序数组中的重复项(Remove Duplicates from Sorted Array)</h3>
-
-<p>这个题特别像之前做的27题，很简单的，用的是同一种方法即两个指针</p>
-
-<pre><code class="language-java">class Solution {
-    public int removeDuplicates(int[] nums) {
-        int i = 0;
-        if (nums.length == 0) {
-            return 0;
-        }
-
-        for (int j = 0; j &lt; nums.length; j++) {
-            if (j == nums.length - 1) {
-                nums[i] = nums[j];
-            } else if (nums[j] != nums[j+1]) {
-                nums[i] = nums[j];
-                i++;
-            }
-        }
-        return i+1;
-    }
-}
-</code></pre>
-
-<p>执行用时：2ms 内存消耗：43.4MB</p>
 
 
 				</div>

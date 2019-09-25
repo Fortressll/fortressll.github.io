@@ -58,15 +58,15 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode100/">Leetcode-100.相同的树(Same Tree)</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode136/">Leetcode-136.只出现一次的数字(Single Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
 				
 			</ul>
 		</div>
@@ -82,6 +82,61 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode100/">Leetcode-100.相同的树(Same Tree)</a></h1>
+						<span>Sep 25, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="100-相同的树-same-tree">100.相同的树(Same Tree)</h3>
+
+<p>采用递归的方法，首先判断两根节点是否为空，若均为空返回true，有一个为空返回false，然后判断两根节点是否相等，若相等则对他们的左节点和右节点做相同的递归操作，否则返回false</p>
+
+<pre><code class="language-java">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null &amp; q == null)
+            return true;
+        if (p == null || q == null)
+            return false;
+        if (p.val != q.val)
+            return false;
+        boolean result = isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right);
+
+        return result;
+    }
+}
+
+</code></pre>
+
+<p>执行用时：0ms 内存消耗：34.2MB</p>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -200,47 +255,6 @@
 </code></pre>
 
 <p>执行用时：1725ms 内存消耗：40.7MB</p>
-
-
-				</div>
-				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode136/">Leetcode-136.只出现一次的数字(Single Number)</a></h1>
-						<span>Sep 21, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<p>采用语言为Java</p>
-
-<ul>
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h3 id="136-只出现一次的数字-single-number">136.只出现一次的数字(Single Number)</h3>
-
-<p>对已知数组排序，然后遍历数组，寻找只出现一次的元素</p>
-
-<pre><code class="language-java">class Solution {
-    public int singleNumber(int[] nums) {
-        Arrays.sort(nums);
-
-        for (int i = 0; i &lt; nums.length - 1; i+=2) {
-            if (nums[i] != nums[i+1])
-                return nums[i];
-        }
-        return nums[nums.length-1];
-    }
-}
-</code></pre>
-
-<p>执行用时：5ms 内存消耗：38.1MB</p>
 
 
 				</div>

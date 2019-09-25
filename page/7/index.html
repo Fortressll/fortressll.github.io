@@ -58,15 +58,15 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode100/">Leetcode-100.相同的树(Same Tree)</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode136/">Leetcode-136.只出现一次的数字(Single Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
 				
 			</ul>
 		</div>
@@ -82,6 +82,51 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode9/">Leetcode-9.回文数(Palindrome Number)</a></h1>
+						<span>Sep 11, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="9-回文数-palindrome-number">9.回文数(Palindrome Number)</h3>
+
+<p>本来看完题目不想用转字符串数组的方法做来着，但是想了会还是没想出来数学方法，先做了再说</p>
+
+<p>还是一个low,一个high，判断数组对应位置是否相等</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean isPalindrome(int x) {
+        char[] str = (&quot;&quot;+x).toCharArray();
+        int high = str.length-1;
+        for (int low = 0; low &lt;= high; low++) {
+            if(str[low] != str[high-low])
+                return false;
+        }
+        return true;
+    }
+}
+</code></pre>
+
+<p>执行用时：19ms 内存消耗：39.1MB</p>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -194,79 +239,6 @@
 <p><img src="http://chuantu.xyz/t6/702/1568180219x3030586988.jpg" alt="" /></p>
 
 <p>训练细节如上图所示，本篇论文初看好像不是很难理解，但是还是建议对应相应的代码去自习扣一扣细节，可能会有不一样的认识。原文中的代码是Lua语言的，因为不是很了解Lua，所有我在Github上找到了Tensorflow版本的，也就是用Python语言的，慢慢啃还是由很多收获，希望大家可以去看一看，链接放在本篇开头部分，就这样~</p>
-
-
-				</div>
-				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode1/">LeetCode-1&amp;&amp;167.两数之和(Two Sum)相关</a></h1>
-						<span>Sep 9, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<ul>
-<li><p>心血来潮想学习刷刷LeetCode，从简单难度开始吧,采用的语言为Java</p></li>
-
-<li><p>附上LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="1-两数之和-two-sum">1.两数之和(Two Sum)</h3>
-
-<p>遍历一下，看看哪两个数字相加等于我们的目标值，返回他们的数组下标就可以了</p>
-
-<pre><code class="language-java">class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        int[] output = new int[2];
-        for (int i = 0; i &lt; nums.length; i++) {
-            for (int j = i + 1; j &lt; nums.length; j++) {
-                if (nums[i] + nums[j] == target) {
-                    output[0] = i;
-                    output[1] = j;
-                }
-            }
-        }
-
-        return output;
-    }
-</code></pre>
-
-<p>执行用时：72ms 内存消耗：38.5MB</p>
-
-<h3 id="167-两数之和ii-输入有序数组-two-sum-ii-input-array-is-sorted">167.两数之和II-输入有序数组(Two Sum II - Input array is sorted)</h3>
-
-<p>因为要求是有序数组，所以设置了两个指针low和high，判断对应数相加是否是目标值，若是则返回下标+1</p>
-
-<pre><code class="language-java">class Solution {
-    public int[] twoSum(int[] numbers, int target) {
-        int low = 0;
-        int high = numbers.length-1;
-        int[] output = new int[2];
-        while(low &lt; high) {
-            if (numbers[low] + numbers[high] == target) {
-                output[0] = low + 1;
-                output[1] = high + 1;
-            }
-            if (target - numbers[low] &lt; numbers[high]) {
-                    high--;
-            } else {
-                    low++;
-            }
-        }
-        return output;
-    }
-
-</code></pre>
-
-<p>执行用时：2ms 内存消耗：39.7MB</p>
 
 
 				</div>

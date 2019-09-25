@@ -6,10 +6,23 @@
     <description>Recent content on 小乐的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
-    <lastBuildDate>Tue, 24 Sep 2019 10:47:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Sep 2019 09:31:24 +0800</lastBuildDate>
     
 	<atom:link href="https://fortressll.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode-100.相同的树(Same Tree)</title>
+      <link>https://fortressll.github.io/post/leetcode100/</link>
+      <pubDate>Wed, 25 Sep 2019 09:31:24 +0800</pubDate>
+      
+      <guid>https://fortressll.github.io/post/leetcode100/</guid>
+      <description>采用语言为Java
+ LeetCode国内官网：https://leetcode-cn.com
+ 因为题号和题名都有，题目描述就不写了
+  简单难度 100.相同的树(Same Tree) 采用递归的方法，首先判断两根节点是否为空，若均为空返回true，有一个为空返回false，然后判断两根节点是否相等，若相等则对他们的左节点和右节点做相同的递归操作，否则返回false
+/** * Definition for a binary tree node. * public class TreeNode { * int val; * TreeNode left; * TreeNode right; * TreeNode(int x) { val = x; } * } */ class Solution { public boolean isSameTree(TreeNode p, TreeNode q) { if (p == null &amp;amp; q == null) return true; if (p == null || q == null) return false; if (p.</description>
+    </item>
     
     <item>
       <title>Leetcode-202.快乐数(Happy Number)</title>

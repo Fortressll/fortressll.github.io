@@ -58,15 +58,15 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode100/">Leetcode-100.相同的树(Same Tree)</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode136/">Leetcode-136.只出现一次的数字(Single Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
 				
 			</ul>
 		</div>
@@ -82,6 +82,47 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode136/">Leetcode-136.只出现一次的数字(Single Number)</a></h1>
+						<span>Sep 21, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h3 id="136-只出现一次的数字-single-number">136.只出现一次的数字(Single Number)</h3>
+
+<p>对已知数组排序，然后遍历数组，寻找只出现一次的元素</p>
+
+<pre><code class="language-java">class Solution {
+    public int singleNumber(int[] nums) {
+        Arrays.sort(nums);
+
+        for (int i = 0; i &lt; nums.length - 1; i+=2) {
+            if (nums[i] != nums[i+1])
+                return nums[i];
+        }
+        return nums[nums.length-1];
+    }
+}
+</code></pre>
+
+<p>执行用时：5ms 内存消耗：38.1MB</p>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -170,63 +211,6 @@ class Solution {
 </code></pre>
 
 <p>执行用时：2ms 内存消耗：37.4MB</p>
-
-
-				</div>
-				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode21/">Leetcode-21.合并两个有序链表(Merge Two Sorted Lists)</a></h1>
-						<span>Sep 19, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<ul>
-<li><p>采用语言为Java</p></li>
-
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="21-合并两个有序链表-merge-two-sorted-lists">21.合并两个有序链表(Merge Two Sorted Lists)</h3>
-
-<p>这道题目是一个有关链表的题目中，注释中给出了ListNode的定义</p>
-
-<p>整个合并过程可以看作是一个递归的过程，两个链表中头部较小的一个与剩下的元素进行递归合并</p>
-
-<pre><code class="language-java">/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return l2;
-        } else if (l2 == null) {
-            return l1;
-        } else if (l1.val &lt; l2.val) {
-            l1.next = mergeTwoLists(l1.next, l2);
-            return l1;
-        } else {
-            l2.next = mergeTwoLists(l1, l2.next);
-            return l2;
-        }
-    }
-}
-</code></pre>
-
-<p>执行用时：1ms 内存消耗：36.6MB</p>
 
 
 				</div>

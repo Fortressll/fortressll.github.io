@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="generator" content="Hugo 0.58.1" />
 	
-	<title>Leetcode-169.求众数(Majority Element) - 记录学习，记录生活</title>
+	<title>Leetcode-100.相同的树(Same Tree) - 记录学习，记录生活</title>
 
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -85,8 +85,8 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1>Leetcode-169.求众数(Majority Element)</h1>
-						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode169/"># Sep 21, 2019</a></span>
+						<h1>Leetcode-100.相同的树(Same Tree)</h1>
+						<span class="post-date"><a href="https://fortressll.github.io/post/leetcode100/"># Sep 25, 2019</a></span>
 					</div>
 
 					
@@ -103,47 +103,36 @@
 
 <h2 id="简单难度">简单难度</h2>
 
-<h3 id="169-求众数-majority-element">169.求众数(Majority Element)</h3>
+<h3 id="100-相同的树-same-tree">100.相同的树(Same Tree)</h3>
 
-<h3 id="解法一">解法一</h3>
+<p>采用递归的方法，首先判断两根节点是否为空，若均为空返回true，有一个为空返回false，然后判断两根节点是否相等，若相等则对他们的左节点和右节点做相同的递归操作，否则返回false</p>
 
-<p>排序已知数组，对应下标length/2的位置恰好是众数</p>
+<pre><code class="language-java">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null &amp; q == null)
+            return true;
+        if (p == null || q == null)
+            return false;
+        if (p.val != q.val)
+            return false;
+        boolean result = isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right);
 
-<pre><code class="language-java">class Solution {
-     public int majorityElement(int[] nums) {
-        Arrays.sort(nums);
-        return nums[nums.length / 2];
+        return result;
     }
 }
+
 </code></pre>
 
-<p>执行用时：2ms 内存消耗：41.5MB</p>
-
-<h3 id="解法二">解法二</h3>
-
-<p>穷举，超级费时间</p>
-
-<pre><code class="language-java">class Solution {
-    public int majorityElement(int[] nums) {
-        int half = nums.length/2;
-
-        for (int num : nums) {
-            int count = 0;
-            for (int item : nums) {
-                if (item == num) {
-                    count += 1;
-                }
-            }
-            if (count &gt; half) {
-                return num;
-            }
-        }
-        return -1;
-    }
-}
-</code></pre>
-
-<p>执行用时：1725ms 内存消耗：40.7MB</p>
+<p>执行用时：0ms 内存消耗：34.2MB</p>
 
 
 				</div>
