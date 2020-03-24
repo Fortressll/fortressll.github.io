@@ -58,22 +58,22 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode100/">Leetcode-100.相同的树(Same Tree)</a></li>
+				<li><a href="https://fortressll.github.io/post/new/">New</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode100/">Leetcode-100.相同的树(Same Tree)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
 				
 			</ul>
 		</div>
 
 		
 
-		<p class="copyright">&copy; 2019. All rights reserved. </p>
+		<p class="copyright">&copy; 2020. All rights reserved. </p>
 		<p class="attr">Powered by <a href="http://gohugo.io">Hugo</a> &amp; <a href="https://github.com/ExchangeRate-API/strange-case">Strange Case</a> (inspired by <a href="https://github.com/poole/hyde">Hyde</a>).</p>
 
 	</div>
@@ -82,6 +82,56 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode83/">Leetcode-83.删除排序链表中的重复元素(Remove Duplicates from Sorted List)</a></h1>
+						<span>Sep 19, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<ul>
+<li><p>采用语言为Java</p></li>
+
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="83-删除排序链表中的重复元素-remove-duplicates-from-sorted-list">83.删除排序链表中的重复元素(Remove Duplicates from Sorted List)</h3>
+
+<p>参考了某大佬思路，题目要求是删除重复元素，首先判断链表是否为空或者链表是否只剩一个元素，这种情况直接返回就可以了；接下来进行递归操作，判断头节点值是否等于头节点后next节点的值，相等表明该元素重复，返回head.next值即可</p>
+
+<pre><code class="language-java">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+        head.next = deleteDuplicates(head.next);
+        if (head.val == head.next.val)
+            head = head.next;
+        return head;
+    }
+}
+</code></pre>
+
+<p>执行用时：2ms 内存消耗：37.4MB</p>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -225,94 +275,6 @@ class Solution {
 </code></pre>
 
 <p>执行用时：29ms 内存消耗：49.1MB</p>
-
-
-				</div>
-				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode349/">Leetcode-349.两个数组的交集(Intersection of Two Arrays)</a></h1>
-						<span>Sep 17, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<p>采用语言为Java</p>
-
-<ul>
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="349-两个数组的交集-intersection-of-two-arrays">349.两个数组的交集(Intersection of Two Arrays)</h3>
-
-<h3 id="解法一">解法一</h3>
-
-<p>题目要求两个数组的交集，习惯性遍历两个数组来做，但是时间复杂度就会很高了。先对两个数组排序，然后选择较短的那个数组长度定义新数组，比较两个数组，将相同且新数组中没有的元素添加至新数组。注意：因为新数组长度可能较长，最后可能会有默认值0，所以截取其实际长度(index)作为返回值</p>
-
-<p>笔记：Java中的Arrays.copyOfRange()函数用来截取数组中的某一段，就像是Python中的切片操作</p>
-
-<pre><code class="language-java">class Solution {
-    public int[] intersection(int[] nums1, int[] nums2) {
-        Arrays.sort(nums1);
-        Arrays.sort(nums2);
-        int len = nums1.length &gt; nums2.length ? nums2.length : nums1.length;
-        int[] result = new int[len];
-        int index = 0;
-
-        for (int s1: nums1) {
-            for (int s2: nums2) {
-                if (s1 == s2 &amp;&amp; index == 0) {
-                    result[index++] = s1;
-                } else  if (s1 == s2 &amp;&amp; s1 != result[index-1]) {
-                    result[index++] = s1;
-                }
-            }
-        }
-
-        return Arrays.copyOfRange(result, 0, index);
-    }
-}
-</code></pre>
-
-<p>执行用时：18ms 内存消耗：38.3MB</p>
-
-<h3 id="解法二">解法二</h3>
-
-<p>用了HashSet,也就是集合，将给定的两个数组都转为集合后，就可以直接用集合的交集函数，再将集合转为数组即可达到题目要求</p>
-
-<p>笔记：Java中的retainAll()函数用来求集合</p>
-
-<pre><code class="language-java">import java.util.HashSet;
-
-class Solution {
-    public int[] intersection(int[] nums1, int[] nums2) {
-        HashSet&lt;Integer&gt; set1 = new HashSet&lt;Integer&gt;();
-        HashSet&lt;Integer&gt; set2 = new HashSet&lt;Integer&gt;();
-        for (Integer s1: nums1)
-            set1.add(s1);
-        for (Integer s2: nums2)
-            set2.add(s2);
-
-        set1.retainAll(set2);
-
-        int[] result = new int[set1.size()];
-        int i = 0;
-        for (int s1: set1)
-            result[i++] = s1;
-
-        return result;
-    }
-}
-</code></pre>
-
-<p>执行用时：9ms 内存消耗：37.4MB</p>
 
 
 				</div>

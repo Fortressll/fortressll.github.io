@@ -58,22 +58,22 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode100/">Leetcode-100.相同的树(Same Tree)</a></li>
+				<li><a href="https://fortressll.github.io/post/new/">New</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode100/">Leetcode-100.相同的树(Same Tree)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
 				
 			</ul>
 		</div>
 
 		
 
-		<p class="copyright">&copy; 2019. All rights reserved. </p>
+		<p class="copyright">&copy; 2020. All rights reserved. </p>
 		<p class="attr">Powered by <a href="http://gohugo.io">Hugo</a> &amp; <a href="https://github.com/ExchangeRate-API/strange-case">Strange Case</a> (inspired by <a href="https://github.com/poole/hyde">Hyde</a>).</p>
 
 	</div>
@@ -82,6 +82,94 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/leetcode349/">Leetcode-349.两个数组的交集(Intersection of Two Arrays)</a></h1>
+						<span>Sep 17, 2019</span>
+					</div>
+
+					
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
+
+<p>采用语言为Java</p>
+
+<ul>
+<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
+
+<li><p>因为题号和题名都有，题目描述就不写了</p></li>
+</ul>
+
+<h2 id="简单难度">简单难度</h2>
+
+<h3 id="349-两个数组的交集-intersection-of-two-arrays">349.两个数组的交集(Intersection of Two Arrays)</h3>
+
+<h3 id="解法一">解法一</h3>
+
+<p>题目要求两个数组的交集，习惯性遍历两个数组来做，但是时间复杂度就会很高了。先对两个数组排序，然后选择较短的那个数组长度定义新数组，比较两个数组，将相同且新数组中没有的元素添加至新数组。注意：因为新数组长度可能较长，最后可能会有默认值0，所以截取其实际长度(index)作为返回值</p>
+
+<p>笔记：Java中的Arrays.copyOfRange()函数用来截取数组中的某一段，就像是Python中的切片操作</p>
+
+<pre><code class="language-java">class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int len = nums1.length &gt; nums2.length ? nums2.length : nums1.length;
+        int[] result = new int[len];
+        int index = 0;
+
+        for (int s1: nums1) {
+            for (int s2: nums2) {
+                if (s1 == s2 &amp;&amp; index == 0) {
+                    result[index++] = s1;
+                } else  if (s1 == s2 &amp;&amp; s1 != result[index-1]) {
+                    result[index++] = s1;
+                }
+            }
+        }
+
+        return Arrays.copyOfRange(result, 0, index);
+    }
+}
+</code></pre>
+
+<p>执行用时：18ms 内存消耗：38.3MB</p>
+
+<h3 id="解法二">解法二</h3>
+
+<p>用了HashSet,也就是集合，将给定的两个数组都转为集合后，就可以直接用集合的交集函数，再将集合转为数组即可达到题目要求</p>
+
+<p>笔记：Java中的retainAll()函数用来求集合</p>
+
+<pre><code class="language-java">import java.util.HashSet;
+
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet&lt;Integer&gt; set1 = new HashSet&lt;Integer&gt;();
+        HashSet&lt;Integer&gt; set2 = new HashSet&lt;Integer&gt;();
+        for (Integer s1: nums1)
+            set1.add(s1);
+        for (Integer s2: nums2)
+            set2.add(s2);
+
+        set1.retainAll(set2);
+
+        int[] result = new int[set1.size()];
+        int i = 0;
+        for (int s1: set1)
+            result[i++] = s1;
+
+        return result;
+    }
+}
+</code></pre>
+
+<p>执行用时：9ms 内存消耗：37.4MB</p>
+
+
+				</div>
 				
 				<div class="post">
 
@@ -176,54 +264,6 @@
 </code></pre>
 
 <p>执行用时：5ms 内存消耗：49.1MB</p>
-
-
-				</div>
-				
-				<div class="post">
-
-					<div class="post-heading">
-						<h1><a href="https://fortressll.github.io/post/leetcode35/">Leetcode-35.探索插入位置(Search Insert Position)</a></h1>
-						<span>Sep 16, 2019</span>
-					</div>
-
-					
-
-<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ef370e6802a0517d.jpg" alt="" /></p>
-
-<p>采用语言为Java</p>
-
-<ul>
-<li><p>LeetCode国内官网：<a href="https://leetcode-cn.com">https://leetcode-cn.com</a></p></li>
-
-<li><p>因为题号和题名都有，题目描述就不写了</p></li>
-</ul>
-
-<h2 id="简单难度">简单难度</h2>
-
-<h3 id="35-探索插入位置-search-insert-position">35.探索插入位置(Search Insert Position)</h3>
-
-<p>额~这个题还是很简单的，都有点不好意思写了，遍历下就完事了。当然是没考虑内存的情况，击败不了多少用户</p>
-
-<pre><code class="language-java">class Solution {
-    public int searchInsert(int[] nums, int target) {
-        int index = 0;
-        for (int i = 0; i &lt; nums.length; i++) {
-            if (nums[i] == target || nums[i] &gt; target) {
-                index = i;
-                break;
-            }
-            else {
-                index = i + 1;
-            }
-        }
-        System.out.println(index);
-        return index;
-    }
-}
-</code></pre>
-
-<p>执行用时：3ms 内存消耗：39.7MB</p>
 
 
 				</div>

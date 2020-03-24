@@ -58,22 +58,22 @@
 			<p>Recent Posts:</p>
 			<ul>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode100/">Leetcode-100.相同的树(Same Tree)</a></li>
+				<li><a href="https://fortressll.github.io/post/new/">New</a></li>
 				
 				<li><a href="https://fortressll.github.io/post/">Posts</a></li>
 				
 				<li><a href="https://fortressll.github.io/">小乐的博客</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode100/">Leetcode-100.相同的树(Same Tree)</a></li>
 				
-				<li><a href="https://fortressll.github.io/post/leetcode169/">Leetcode-169.求众数(Majority Element)</a></li>
+				<li><a href="https://fortressll.github.io/post/leetcode202/">Leetcode-202.快乐数(Happy Number)</a></li>
 				
 			</ul>
 		</div>
 
 		
 
-		<p class="copyright">&copy; 2019. All rights reserved. </p>
+		<p class="copyright">&copy; 2020. All rights reserved. </p>
 		<p class="attr">Powered by <a href="http://gohugo.io">Hugo</a> &amp; <a href="https://github.com/ExchangeRate-API/strange-case">Strange Case</a> (inspired by <a href="https://github.com/poole/hyde">Hyde</a>).</p>
 
 	</div>
@@ -82,6 +82,74 @@
 			</div>
 			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
 
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="https://fortressll.github.io/post/paper/">一起看论文-Stacked Hourglass Networks for Human Pose Estimation</a></h1>
+						<span>Sep 10, 2019</span>
+					</div>
+
+					
+
+<p>之前看过一段时间论文，在这里做下简单的记录和大家分享一下，做的ppt有阵日子了，所以可能会忘记个别图片的出处，如果有幸被作者看到了，请联系我删除~</p>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/861d15bc55c305d0.jpg" alt="" /></p>
+
+<p>So，let&rsquo;s get started!</p>
+
+<ul>
+<li><p>本篇主要和大家分享一下关于人体姿态估计方面的论文，主要以ppt加少量描述的形式呈现</p></li>
+
+<li><p>总觉得我的博客用的主题有点问题，图片很小，需要看细节只能麻烦Crtl+鼠标滚轮放大了</p></li>
+</ul>
+
+<h2 id="论文题目-stacked-hourglass-networks-for-human-pose-estimation">论文题目：Stacked Hourglass Networks for Human Pose Estimation</h2>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/7532e61c5ac7ff08.jpg" alt="" /></p>
+
+<ul>
+<li>附上论文：<a href="https://arxiv.org/abs/1603.06937">https://arxiv.org/abs/1603.06937</a></li>
+<li>附上代码(tensorflow版本，原版为Lua语言)：<a href="https://github.com/wbenbihi/hourglasstensorlfow">https://github.com/wbenbihi/hourglasstensorlfow</a></li>
+</ul>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/ec1c43e5d31e6f18.jpg" alt="" /></p>
+
+<p>可以看到整体网络结构是由多个hourglass(沙漏)状的块组成，文章中多次提到bottom-up和top-down，对应高分辨率到低分辨率和从低分辨率到高分辨率，起初理解总是搞反，总觉得bottom to up直译应该是低到高，后来才发现自己的错误。该网络结构像沙漏，在图中能体现出它对称的特点。</p>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/2b2e1a035e4d231d.jpg" alt="" /></p>
+
+<p>接下来介绍几个文章中的重要知识点，先是Residual Module(残差块)和Heat Map(热图)。上图中的小图代表一个残差块，下边大图是一个更加详细的绘制，图源实在找不到了抱歉，可以看到穿插了三个Batch Normalization(绿色部分)和三个Relu(红色部分)。</p>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/5d3c520d2ebd6c36.jpg" alt="" /></p>
+
+<p>上图即为Heat Map(热图)，可以看到有对关节点的预测，论文中对热图介绍不多，所以如想做更多了解还得Google了。</p>
+
+<p><img src="http://chuantu.xyz/t6/702/1568179727x3030586988.jpg" alt="" /></p>
+
+<p>上图是一个四阶Hourglass模块，可以先跳过此图看下图中的一阶Hourglass，之后再回来能够加深理解，图中每个方块都代表一个Residual残差块。</p>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/11ebbf0f23d7ab74.jpg" alt="" /></p>
+
+<p>接下来就是文中的主题Hourglass了，它的主要作用就是要捕捉每个尺度下地特征，图中就是一个Hourglass模块，蓝色Res代表Residual(残差块)，绿色为Max Pool(最大池化)层，红色部分为Up Sample(上采样)。大致可以从Hourglass模块总结出四个特点：1.可以看到在池化之前，向上分出了一个残差块，它的作用就是保留原尺度的信息，因为通过池化后会发生变化 2.上采样之后会将该处的信息和之前支线残差块出来的信息做一个相加 3.每两次降采样之间，会用一个残差块来提取特征，此图中并没有体现，因为它是一个一阶Hourglass，下图会展示一个四阶Hourglass结构，仔细对比可以发现这个特点 4.每两次相加操作之间会有一个残差块用于提取特征，同样参照下图</p>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/0fdda6b271fb1caf.jpg" alt="" /></p>
+
+<p>上图为一个四阶的Hourglass模块，其实就是在满足上述四个特点的基础上做了四次叠加(将一阶Hourglass图中虚线框内部分替换为一个一阶Hourglass就可以得到二阶结构)</p>
+
+<p><img src="https://ftp.bmp.ovh/imgs/2019/09/61d5b110484c6190.jpg" alt="" /></p>
+
+<p>Intermediate Supervision模块，暂译为中间监督，它的目的是对所有的Hourglass模块进行预测。图中沙漏状的就是Hourglass，每一个热图都会计算loss，蓝色部分就是热图的位置，其余部分均为卷积层。</p>
+
+<p><img src="http://chuantu.xyz/t6/702/1568179956x3030586988.jpg" alt="" />
+至此，各模块大致介绍已结束，附上整个网络结构图，可以看到从输入开始，依次经过卷积层，批量归一化加Relu、残差块、池化层，再经过两个残差块后就是重复的模块了，本文用来8个这样的重复结构，和热图那里是一个结构。</p>
+
+<p><img src="http://chuantu.xyz/t6/702/1568180219x3030586988.jpg" alt="" /></p>
+
+<p>训练细节如上图所示，本篇论文初看好像不是很难理解，但是还是建议对应相应的代码去自习扣一扣细节，可能会有不一样的认识。原文中的代码是Lua语言的，因为不是很了解Lua，所有我在Github上找到了Tensorflow版本的，也就是用Python语言的，慢慢啃还是由很多收获，希望大家可以去看一看，链接放在本篇开头部分，就这样~</p>
+
+
+				</div>
 				
 				<div class="post">
 
